@@ -2,7 +2,7 @@ from typing import List, Dict, Any, Set, Tuple
 import abc
 
 from exceptions.forgeException import *
-from ..buildConsts import TO_ENUM
+from ..buildConsts import TO_ENUM, name_t
 
 
 # TODO Break style params into seperate list
@@ -64,8 +64,7 @@ class ParseObject(abc.ABC):
 
 class Widget(ParseObject):
     def __init__(self, name, validParams: List[Tuple[str, str]], requiredParams: List[str]):
-        super().__init__(name, validParams, requiredParams)
-        self.activeStyle: Style
+        super().__init__(name, validParams + [('style', name_t)], requiredParams)
 
 
 class Style(ParseObject):
