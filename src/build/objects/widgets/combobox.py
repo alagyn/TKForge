@@ -1,6 +1,6 @@
 from ..parseObject import Widget, Style
 
-from ...buildConsts import str_t, strList, color_t, int_t, bool_t, name_t, intList_t
+from ...buildConsts import str_t, strList_t, color_t, int_t, bool_t, name_t, intList_t
 from ...buildConsts import disabled_s, focus_s, pressed_s, readonly_s
 
 COMBO_BOX_VALID = [
@@ -8,7 +8,7 @@ COMBO_BOX_VALID = [
     ('justify', str_t),
     ('defaultState', str_t),
     ('outputVariable', name_t),
-    ('values', strList),
+    ('values', strList_t),
     ('width', int_t),
     ('height', int_t)
 

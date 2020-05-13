@@ -2,7 +2,7 @@ from typing import List, Tuple
 
 from build.objects.containers.container import Container
 
-from ...buildConsts import intList_t, str_t, int_t, name_t, func_t, strList, nameList, color_t, bool_t
+from ...buildConsts import intList_t, str_t, int_t, name_t, func_t, strList_t, nameList_t, color_t, bool_t
 
 # WINDOW
 FW_DEF_VALID: List[Tuple[str, str]] = [
@@ -59,8 +59,8 @@ class Frame(Container):
 
 # NOTEBOOK
 NOTEBOOK_VALID_PARAM: List[Tuple[str, str]] = [
-    ('tabNames', strList),
-    ('tabs', nameList)
+    ('tabNames', strList_t),
+    ('tabs', nameList_t)
 ]
 
 NOTEBOOK_REC_PARAM: List[str] = ['tabNames', 'tabs']

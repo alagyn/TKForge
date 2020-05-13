@@ -1,6 +1,6 @@
 from .parseObject import ParseObject
 
-from ..buildConsts import float_t, int_t, str_t, bool_t
+from ..buildConsts import float_t, int_t, str_t, bool_t, strList_t
 
 
 class Variable(ParseObject):
@@ -27,4 +27,7 @@ class BoolVariable(Variable):
     def __init__(self, name):
         super().__init__(name, bool_t)
 
-# TODO ListVariable
+
+class ListVariable(Variable):
+    def __init__(self, name):
+        super().__init__(name, strList_t)

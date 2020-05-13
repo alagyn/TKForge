@@ -1,11 +1,11 @@
 from ..parseObject import Widget
 
-from ...buildConsts import nameList
+from ...buildConsts import nameList_t
 
 # TODO menubar style
 
 MENU_BAR_VALID = [
-    ('menuLists', nameList)
+    ('menuLists', nameList_t)
 ]
 
 MENU_BAR_REQ = [
@@ -21,7 +21,7 @@ class MenuBar(Widget):
 # MenuList
 
 MENU_LIST_VALID = [
-    ('listItems', nameList)
+    ('listItems', nameList_t)
 ]
 
 MENU_LIST_REQ = [

@@ -1,10 +1,10 @@
 from typing import Dict
 
 intList_t = 'int_list'
-floatList = 'float_list'
-strList = 'string_list'
-nameList = 'item_name_list'
-funcList = 'func_list'
+floatList_t = 'float_list'
+strList_t = 'string_list'
+nameList_t = 'item_name_list'
+funcList_t = 'func_list'
 int_t = 'integer'
 float_t = 'float'
 str_t = 'string'
@@ -13,7 +13,7 @@ name_t = 'item_name'
 bool_t = 'boolean'
 color_t = 'color'
 
-DATA_NAMES = [intList_t, floatList, strList, nameList, funcList,
+DATA_NAMES = [intList_t, floatList_t, strList_t, nameList_t, funcList_t,
               int_t, float_t, str_t, func_t, name_t, bool_t, color_t]
 
 # States
