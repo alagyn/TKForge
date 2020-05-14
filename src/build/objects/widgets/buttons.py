@@ -83,7 +83,7 @@ class RadioButton(Widget):
 
 # Used for Check/Radio Button
 class SelectionStyle(Style):
-    def __init__(self, name, type: str):
+    def __init__(self, name, buttonType: str):
         SELECTION_STYLE_BASE = [
             ('indicatorBackground', color_t),
             ('indicatorColor', color_t),
@@ -97,9 +97,16 @@ class SelectionStyle(Style):
 
         super().__init__(name, SELECTION_STYLE_BASE + BUTTON_STYLE_BASE, selection_states)
 
-        if type != 'radio' or type != 'check':
-            raise DevException(f'Invalid Selection button type "{type}"')
+        RADIO = 1
+        CHECK = 2
 
-        self.type = type
+        if buttonType == 'radio':
+            self.type = RADIO
+        elif buttonType == 'check':
+            self.type = CHECK
+        else:
+            raise DevException(f'Invalid Selection button type "{buttonType}"')
+
+
 
 # TODO ListButton aka menubutton
