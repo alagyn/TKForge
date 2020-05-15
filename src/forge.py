@@ -1,7 +1,7 @@
 import sys
-from forgeParsers.mainParse import startParse
+from parsers.mainParse import startParse
 from output.output import outputBuild
-from exceptions.forgeException import ForgeException
+from forgeExceptions import ForgeException
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:

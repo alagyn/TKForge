@@ -1,5 +1,5 @@
 # File output
-from build.buildObject import BuildObject
+from objects.buildObject import BuildObject
 
 
 # TODO standard dialog function
