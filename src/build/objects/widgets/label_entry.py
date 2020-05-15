@@ -14,7 +14,7 @@ LABEL_VALID = [
     ('defaultState', str_t),
     ('anchor', str_t),
     ('wrapLength', int_t),
-    ('underline', bool_t),
+    ('underline', int_t),   # TODO label accelerator?
     ('relief', str_t)
 ]
 

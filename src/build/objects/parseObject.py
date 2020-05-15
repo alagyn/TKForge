@@ -5,8 +5,6 @@ from exceptions.forgeException import *
 from ..buildConsts import TO_ENUM, name_t
 
 
-# TODO Break style params into seperate list
-
 class ParseObject(abc.ABC):
     """
     TopLevel abstract for a parsed object
@@ -45,7 +43,7 @@ class ParseObject(abc.ABC):
         :param datatype: The value's datatype enum
         """
         if key in self.validParameters:
-            if type != self.validParameters[key]:
+            if datatype != self.validParameters[key]:
                 raise InvalidTypeException(self.name, key, self.validParameters[key], datatype)
 
             self.params[key] = value

@@ -9,7 +9,7 @@ BUTTON_BASE_V = [
     ('takeFocus', bool_t),
     ('defaultText', str_t),
     ('textVariable', name_t),
-    ('underline', bool_t),
+    ('underline', int_t),  # TODO button accelerator
     ('width', int_t),
     ('command', func_t)
 ]
