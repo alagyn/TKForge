@@ -1,5 +1,5 @@
 # TKForge
-A custom language compiler to generate Python TK Interface GUI code
+A custom language compiler to generate Python TK Interface code
 
 Documentation coming soon
 

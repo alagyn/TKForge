@@ -2,7 +2,6 @@ from objects.datatypeConsts import str_t, strList_t, bool_t, float_t, int_t
 from .parseObject import ParseObject
 
 
-
 class Variable(ParseObject):
     def __init__(self, name, datatype):
         super().__init__(name, [('value', datatype)], ['value'])

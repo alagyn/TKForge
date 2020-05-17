@@ -31,3 +31,6 @@ if __name__ == '__main__':
 #   2) Code parsers for each
 #   3) Code output functionality
 
+# TODO Image Param
+#   Add to style and allow state specification
+#   Move imageLoc Param to style
