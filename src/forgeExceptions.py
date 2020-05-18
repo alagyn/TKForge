@@ -1,6 +1,3 @@
-from objects.datatypeConsts import TO_NAME
-
-
 class ForgeException(Exception):
     def __init__(self):
         super().__init__()
@@ -19,10 +16,10 @@ class InvalidParamException(ForgeException):
 
 
 class InvalidTypeException(ForgeException):
-    def __init__(self, objName: str, paramName: str, validType: int, curType: int):
+    def __init__(self, objName: str, paramName: str, validType: str, curType: str):
         super().__init__()
         self.message = f'Object "{objName}": Parameter "{paramName}": ' \
-                       f'Invalid type: Expected{TO_NAME[validType]}, got {TO_NAME[curType]}'
+                       f'Invalid type: Expected{validType}, got {curType}'
 
 
 class ReDefinitionException(ForgeException):

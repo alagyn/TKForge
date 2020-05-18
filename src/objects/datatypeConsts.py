@@ -16,10 +16,3 @@ color_t = 'color'
 
 DATA_NAMES = [intList_t, floatList_t, strList_t, nameList_t, funcList_t,
               int_t, float_t, str_t, func_t, name_t, bool_t, color_t, boolList_t]
-
-# TODO remove TO_ENUM/NAME?
-TO_ENUM: Dict[str, int] = {k: v for k, v in zip(DATA_NAMES, range(0, len(DATA_NAMES)))}
-TO_NAME: Dict[int, str] = {v: k for k, v in TO_ENUM.items()}
-
-if __name__ == '__main__':
-    print(TO_ENUM)

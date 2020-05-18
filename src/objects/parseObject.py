@@ -2,7 +2,7 @@ from typing import List, Dict, Any, Set, Tuple
 import abc
 
 from forgeExceptions import *
-from objects.datatypeConsts import TO_ENUM, name_t
+from objects.datatypeConsts import name_t
 
 
 class ParseObject(abc.ABC):
@@ -22,8 +22,7 @@ class ParseObject(abc.ABC):
         self.name: str = name
 
         # Generate Dictionary of parameter names and datatypes
-        self.validTypes = [TO_ENUM[y] for x, y in validParams]
-        self.validParameters: Dict[str, int] = {k: v for k, v in zip(validParams, self.validTypes)}
+        self.validParameters: Dict[str, str] = {k: v for k, v in validParams}
         self.recommendedParameters: Set[str] = set(recommParams)
 
         # Dev check for required params
@@ -34,7 +33,7 @@ class ParseObject(abc.ABC):
         # Container for parameter values given by the user
         self.params: Dict[str, Any] = {}
 
-    def setParam(self, key: str, value: Any, datatype: int) -> None:
+    def setParam(self, key: str, value: Any, datatype: str) -> None:
         """
         Sets the value of a parameter
 
@@ -51,7 +50,7 @@ class ParseObject(abc.ABC):
         else:
             raise InvalidParamException(self.name, key)
 
-    def checkRequiredParams(self) -> None:
+    def checkReccommendedParams(self) -> None:
         """
         Final check to see if all recommended parameters have been set
         """
@@ -60,12 +59,27 @@ class ParseObject(abc.ABC):
                 print(f'Object {self.name}: recommend defining parameter "{param}"')
 
 
-class Widget(ParseObject):
+class Widget(ParseObject, abc.ABC):
     def __init__(self, name, validParams: List[Tuple[str, str]], requiredParams: List[str]):
         super().__init__(name, validParams + [('style', name_t)], requiredParams)
 
+    @abc.abstractmethod
+    def declaration(self):
+        pass
 
-class Style(ParseObject):
+    @abc.abstractmethod
+    def outputParams(self):
+        pass
+
+    def postInit(self):
+        pass
+
+
+class Style(ParseObject, abc.ABC):
     def __init__(self, name, validParams: List[Tuple[str, str]], validStates: List[str]):
         super().__init__(name, validParams, [])
         self.validStates = validStates
+
+    @abc.abstractmethod
+    def outputStyle(self):
+        pass
