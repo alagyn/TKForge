@@ -5,8 +5,8 @@ class ForgeException(Exception):
 
 
 class ParseException(ForgeException):
-    def __init__(self, line, idx, message):
-        self.message = f'{message}, line: {idx}: "{line}"'
+    def __init__(self, line, message):
+        self.message = f'{message}: "{line}"'
 
 
 class InvalidParamException(ForgeException):
@@ -15,11 +15,17 @@ class InvalidParamException(ForgeException):
         self.message: str = f'Object "{objName}": Invalid parameter "{paramName}"'
 
 
-class InvalidTypeException(ForgeException):
+class InvalidParamTypeException(ForgeException):
     def __init__(self, objName: str, paramName: str, validType: str, curType: str):
         super().__init__()
         self.message = f'Object "{objName}": Parameter "{paramName}": ' \
                        f'Invalid type: Expected{validType}, got {curType}'
+
+
+class InvalidDatatypeException(ForgeException):
+    def __init__(self, line, datatype):
+        super().__init__()
+        self.message = f'Invalid object datatype "{datatype}": "{line}"'
 
 
 class ReDefinitionException(ForgeException):

@@ -16,6 +16,6 @@ PROGRESS_BAR_REC = [
 ]
 
 
-class ProgressBar(Widget):
+class Progressbar(Widget):
     def __init__(self, name):
         super().__init__(name, PROGRESS_BAR_VALID, PROGRESS_BAR_REC)

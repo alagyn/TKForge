@@ -19,6 +19,6 @@ COMBO_BOX_REC = [
 ]
 
 
-class ComboBox(Widget):
+class Combobox(Widget):
     def __init__(self, name):
         super().__init__(name, COMBO_BOX_VALID, COMBO_BOX_REC)
