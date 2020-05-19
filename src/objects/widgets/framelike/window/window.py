@@ -3,7 +3,7 @@
 # WINDOW
 from typing import List, Tuple
 
-from objects.datatypeConsts import intList_t, int_t, bool_t, floatList_t, str_t, func_t, name_t
+from objects.datatypeConsts import intList_t, int_t, bool_t, floatList_t, str_t, name_t
 from objects.interfaces import Container
 from objects.parseObject import Widget
 
@@ -15,8 +15,6 @@ WINDOW_VALID_PARAM: List[Tuple[str, str]] = [
     ('colWeights', floatList_t),
     ('title', str_t),
     ('size', intList_t),
-    ('initOperation', func_t),
-    ('exitOperation', func_t),
     ('loc', intList_t),
     ('menubar', name_t)
 ]
@@ -28,6 +26,8 @@ WINDOW_REC_PARAM: List[str] = [
 
 class Window(Widget, Container):
     def declaration(self):
+        # Gen init and exit functions for clients
+
         pass
 
     def outputParams(self):

@@ -20,6 +20,9 @@ FRAME_VALID_PARAM: List[Tuple[str, str]] = [
 
 
 class Frame(Widget, Container):
+    def postInit(self):
+        pass
+
     def __init__(self, name: str):
         super().__init__(name, FRAME_VALID_PARAM, [])
 

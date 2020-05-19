@@ -1,4 +1,4 @@
-from objects.datatypeConsts import intList_t, int_t, bool_t, floatList_t, str_t, nameList_t
+from objects.datatypeConsts import intList_t, int_t, bool_t, floatList_t, str_t
 from objects.interfaces import Container
 from objects.parseObject import Widget
 
@@ -9,8 +9,7 @@ PANED_FRAME_PARAM = [
     ('rowWeights', floatList_t),
     ('colWeights', floatList_t),
     ('takeFocus', bool_t),
-    ('orient', str_t),
-    ('panes', nameList_t)
+    ('orient', str_t)
 ]
 
 PANED_FRAME_REC = [

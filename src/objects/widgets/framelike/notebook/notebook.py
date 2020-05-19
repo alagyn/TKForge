@@ -1,7 +1,7 @@
 # NOTEBOOK
 from typing import List, Tuple
 
-from objects.datatypeConsts import nameList_t, bool_t, intList_t, int_t, floatList_t
+from objects.datatypeConsts import bool_t, intList_t, int_t, floatList_t
 from objects.interfaces import Container
 from objects.parseObject import Widget
 
@@ -11,7 +11,6 @@ NOTEBOOK_VALID_PARAM: List[Tuple[str, str]] = [
     ('takeFocus', bool_t),
     ('rowWeights', floatList_t),
     ('colWeights', floatList_t),
-    ('tabs', nameList_t),
     ('takeFocus', bool_t)
 ]
 

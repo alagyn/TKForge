@@ -7,5 +7,8 @@ SEP_STYLE_PARAM = [
 
 
 class SeparatorStyle(Style):
+    def outputStyle(self):
+        pass
+
     def __init__(self, name):
         super().__init__(name, SEP_STYLE_PARAM, [])

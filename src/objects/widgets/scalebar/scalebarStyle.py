@@ -17,5 +17,8 @@ SCALE_STYLE_PARAM = [
 
 
 class ScalebarStyle(Style):
+    def outputStyle(self):
+        pass
+
     def __init__(self, name):
         super().__init__(name, SCALE_STYLE_PARAM, SCALE_STYLE_STATES)

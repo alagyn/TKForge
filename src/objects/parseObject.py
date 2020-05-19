@@ -33,21 +33,28 @@ class ParseObject(abc.ABC):
         # Container for parameter values given by the user
         self.params: Dict[str, Any] = {}
 
-    def setParam(self, key: str, value: Any, datatype: str) -> None:
+    def getDatatype(self, key: str) -> str:
+        """
+        Returs the datatype of the given parameter
+        :param key: The parameter name/key
+        :return: The datatype
+        """
+
+        try:
+            return self.validParameters[key]
+        except KeyError:
+            raise InvalidParamException(self.name, key)
+
+    def setParam(self, key: str, value: Any) -> None:
         """
         Sets the value of a parameter
 
         :param key: The parameter name
         :param value: The parameter's value
-        :param datatype: The value's datatype enum
         """
-        if key in self.validParameters:
-            if datatype != self.validParameters[key]:
-                raise InvalidTypeException(self.name, key, self.validParameters[key], datatype)
-
+        try:
             self.params[key] = value
-
-        else:
+        except KeyError:
             raise InvalidParamException(self.name, key)
 
     def checkReccommendedParams(self) -> None:

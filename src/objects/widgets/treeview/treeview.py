@@ -18,5 +18,14 @@ TREE_REC = [
 
 
 class TreeView(Widget):
+    def declaration(self):
+        pass
+
+    def outputParams(self):
+        pass
+
+    def postInit(self):
+        pass
+
     def __init__(self, name):
         super().__init__(name, TREE_PARAM, TREE_REC)

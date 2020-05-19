@@ -1,23 +1,11 @@
 # PARSER
-import re
-from objects.buildObject import BuildObject
-from typing import List, Tuple
+from typing import List
+
 from forgeExceptions import *
+from objects.buildObject import BuildObject
 from objects.parseObject import ParseObject
-from .objectTypeConsts import OBJECT_TYPES, STYLE_TYPES
-
-# REGEX
-
-MAKE_CMD = re.compile(r'(?P<cmd>style|create) +'
-                      r'(?P<datatype>[A-Z][a-zA-Z]*)? +'
-                      r'(?P<name>[a-zA-Z]\w+) *: *(?P<brace>[{])?')
-
-SET_CMD = re.compile(r'set +'
-                     r'(?P<param>[a-zA-Z]+) *: +'
-                     r'(?P<data>[\w,\[\] "#.]+)')
-
-LOAD_CMD = re.compile(r'load +'
-                      r'(?P<name>[a-zA-Z]\w*) *: (?P<brace>[{])?')
+from parsers.regexConsts import MAKE_CMD, SET_CMD, LOAD_CMD
+from .objectTypeConsts import OBJECT_TYPES
 
 
 def startParse(bo: BuildObject, infile: str):
@@ -61,17 +49,17 @@ def parseNextCmd(lines: List[str], idx: int, bo: BuildObject, parent: ParseObjec
     if parent is not None:
         match = SET_CMD.fullmatch(lines[idx])
         if match is not None:
-            # TODO set cmd
-            return idx
+            return parseSetCmd(lines, idx, bo, parent, match)
 
         match = LOAD_CMD.fullmatch(lines[idx])
         if match is not None:
             # TODO load cmd
             return idx
 
+    raise ParseException(lines[idx], 'Invalid command')
 
-def parseNextObject(lines: List[str], idx: int, bo: BuildObject, match) \
-        -> int:
+
+def parseNextObject(lines: List[str], idx: int, bo: BuildObject, match) -> int:
     """
     Parses the next object
 
@@ -122,5 +110,14 @@ def parseNextObject(lines: List[str], idx: int, bo: BuildObject, match) \
 
     # Increment past closing brace
     idx += 1
+
+    return idx
+
+
+def parseSetCmd(lines, idx, bo: BuildObject, parent: ParseObject, match) -> int:
+    key = match.group('key')
+    value = match.group('value')
+
+    validDatatype = parent.getDatatype(key)
 
     return idx

@@ -21,5 +21,8 @@ SPINBOX_STATES = [
 
 
 class SpinboxStyle(Style):
+    def outputStyle(self):
+        pass
+
     def __init__(self, name):
         super().__init__(name, SPINBOX_STYLE, SPINBOX_STATES)

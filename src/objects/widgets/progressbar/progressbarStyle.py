@@ -11,5 +11,8 @@ PROGRESS_STYLE_PARAM = [
 
 
 class ProgressbarStyle(Style):
+    def outputStyle(self):
+        pass
+
     def __init__(self, name):
         super().__init__(name, PROGRESS_STYLE_PARAM, [])

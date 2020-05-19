@@ -12,5 +12,8 @@ LABEL_STATES = [disabled_s, readonly_s]
 
 
 class LabelStyle(Style):
+    def outputStyle(self):
+        pass
+
     def __init__(self, name):
         super().__init__(name, LABEL_STYLE_PARAM, LABEL_STATES)

@@ -22,5 +22,8 @@ TREE_STATES = [
 
 
 class TreeViewStyle(Style):
+    def outputStyle(self):
+        pass
+
     def __init__(self, name):
         super().__init__(name, TREE_STYLE, TREE_STATES)

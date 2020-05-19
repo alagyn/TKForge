@@ -17,5 +17,14 @@ PROGRESS_BAR_REC = [
 
 
 class Progressbar(Widget):
+    def declaration(self):
+        pass
+
+    def outputParams(self):
+        pass
+
+    def postInit(self):
+        pass
+
     def __init__(self, name):
         super().__init__(name, PROGRESS_BAR_VALID, PROGRESS_BAR_REC)

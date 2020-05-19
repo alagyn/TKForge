@@ -1,5 +1,5 @@
 # Entry
-from objects.datatypeConsts import name_t, func_t, str_t, bool_t, int_t
+from objects.datatypeConsts import name_t, str_t, bool_t, int_t
 from objects.parseObject import Widget
 
 ENTRY_VALID = [
@@ -10,7 +10,7 @@ ENTRY_VALID = [
     ('outputVariable', name_t),
     ('width', int_t),
     ('validateMode', str_t),
-    ('validateCommand', func_t),
+    ('validate', bool_t),
     ('xScroll', name_t)
 ]
 
@@ -20,5 +20,14 @@ ENTRY_REC = [
 
 
 class Entry(Widget):
+    def declaration(self):
+        pass
+
+    def outputParams(self):
+        pass
+
+    def postInit(self):
+        pass
+
     def __init__(self, name):
         super().__init__(name, ENTRY_VALID, ENTRY_REC)

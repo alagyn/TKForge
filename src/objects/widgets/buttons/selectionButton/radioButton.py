@@ -1,4 +1,4 @@
-from objects.datatypeConsts import name_t, str_t, bool_t, int_t, func_t
+from objects.datatypeConsts import name_t, str_t, bool_t, int_t
 from objects.parseObject import Widget
 
 RADIO_V = [
@@ -8,7 +8,7 @@ RADIO_V = [
     ('textVariable', name_t),
     ('underline', int_t),  # TODO RadioBtn accellerator
     ('width', int_t),
-    ('command', func_t),
+    ('command', bool_t),
     ('onValue', str_t),
     ('outputVariable', name_t)
 ]

@@ -1,4 +1,4 @@
-from objects.datatypeConsts import str_t, name_t, bool_t, int_t, func_t
+from objects.datatypeConsts import str_t, name_t, bool_t, int_t
 from objects.parseObject import Widget
 
 CHECK_V = [
@@ -8,7 +8,6 @@ CHECK_V = [
     ('textVariable', name_t),
     ('underline', int_t),  # TODO check button accelerator
     ('width', int_t),
-    ('command', func_t),
     ('onValue', str_t),
     ('offValue', str_t),
     ('outputVariable', name_t)

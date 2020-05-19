@@ -18,5 +18,8 @@ SCROLL_STYLE_PARAM = [
 
 
 class ScrollbarStyle(Style):
+    def outputStyle(self):
+        pass
+
     def __init__(self, name):
         super().__init__(name, SCROLL_STYLE_PARAM, SCROLL_STYLE_STATES)

@@ -24,5 +24,8 @@ BUTTON_STATES = [
 
 
 class ButtonStyle(Style):
+    def outputStyle(self):
+        pass
+
     def __init__(self, name):
         super().__init__(name, BUTTON_STYLE, BUTTON_STATES)

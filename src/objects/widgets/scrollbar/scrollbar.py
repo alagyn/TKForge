@@ -12,5 +12,14 @@ SCROLL_REC = [
 
 
 class Scrollbar(Widget):
+    def declaration(self):
+        pass
+
+    def outputParams(self):
+        pass
+
+    def postInit(self):
+        pass
+
     def __init__(self, name):
         super().__init__(name, SCROLL_VALID, SCROLL_REC)
