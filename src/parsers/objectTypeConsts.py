@@ -35,3 +35,7 @@ OBJECT_TYPES = {
     'Tree': TreeView
 }
 
+STYLE_TYPES = {
+
+}
+
