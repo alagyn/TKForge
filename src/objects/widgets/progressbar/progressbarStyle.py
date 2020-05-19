@@ -10,6 +10,6 @@ PROGRESS_STYLE_PARAM = [
 ]
 
 
-class ProgressBarStyle(Style):
+class ProgressbarStyle(Style):
     def __init__(self, name):
         super().__init__(name, PROGRESS_STYLE_PARAM, [])

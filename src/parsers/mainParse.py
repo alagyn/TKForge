@@ -88,22 +88,20 @@ def parseNextObject(lines: List[str], idx: int, bo: BuildObject, match) \
     name = match.group('name')
 
     # Create either object or style
+    try:
+        x = OBJECT_TYPES[datatype]
+    except KeyError:
+        raise InvalidDatatypeException(lines[idx], datatype)
+
     if cmd == 'create':
-        try:
-            obj = OBJECT_TYPES[datatype](name)
-        except KeyError:
-            raise InvalidDatatypeException(lines[idx], datatype)
-
-        # Add object to BO
+        obj = x[0]
+        if obj is None:
+            raise ParseException(lines[idx], 'Invalid datatype for this operation')
         bo.defineObject(obj)
-
     else:
-        try:
-            obj = STYLE_TYPES[datatype](name)
-        except KeyError:
-            raise InvalidDatatypeException(lines[idx], datatype)
-
-        # Add style to BO
+        obj = x[1]
+        if obj is None:
+            raise ParseException(lines[idx], 'Invalid datatype for this operation')
         bo.addStyle(obj)
 
     # Check for opening brace

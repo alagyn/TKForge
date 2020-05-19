@@ -32,6 +32,6 @@ STATES = [
 ]
 
 
-class ComboBoxStyle(Style):
+class ComboboxStyle(Style):
     def __init__(self, name):
         super().__init__(name, STYLE_PARAM, STATES)

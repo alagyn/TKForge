@@ -1,3 +1,5 @@
+from abc import ABC
+
 from objects.parseObject import Style
 from objects.stateConsts import active_s, alternate_s, disabled_s, pressed_s, readonly_s, selected_s
 from objects.datatypeConsts import *
@@ -19,10 +21,7 @@ selection_states = [
 
 
 # Used for Check/Radio Button
-class SelectionStyle(Style):
-    def outputStyle(self):
-        pass
-
+class SelectionStyle(Style, ABC):
     def __init__(self, name, buttonType: str):
 
         super().__init__(name, SELECTION_STYLE_BASE, selection_states)
@@ -36,3 +35,19 @@ class SelectionStyle(Style):
             self.type = CHECK
         else:
             raise DevException(f'Invalid Selection button type "{buttonType}"')
+
+
+class RadioButtonStyle(SelectionStyle):
+    def outputStyle(self):
+        pass
+
+    def __init__(self, name):
+        super().__init__(name, 'radio')
+
+
+class CheckButtonStyle(SelectionStyle):
+    def outputStyle(self):
+        pass
+
+    def __init__(self, name):
+        super().__init__(name, 'check')
