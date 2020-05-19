@@ -16,7 +16,6 @@ PANED_STYLE = [
 
 
 class PanedFrameStyle(Style):
-    # TODO PanedFrameStyle output
     def outputStyle(self):
         pass
 

@@ -27,7 +27,6 @@ WINDOW_REC_PARAM: List[str] = [
 
 
 class Window(Widget, Container):
-    # TODO Window output
     def declaration(self):
         pass
 

@@ -10,7 +10,6 @@ PANE_REC = ['widget']
 
 
 class Pane(Widget):
-    # TODO Pane output
     def declaration(self):
         pass
 

@@ -8,5 +8,4 @@ from objects.buildObject import BuildObject
 
 
 def outputBuild(build: BuildObject) -> None:
-    # TODO outputBuild
     pass

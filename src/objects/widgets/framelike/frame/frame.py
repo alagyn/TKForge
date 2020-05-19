@@ -24,7 +24,6 @@ class Frame(Widget, Container):
         super().__init__(name, FRAME_VALID_PARAM, [])
 
     def outputParams(self):
-        # TODO Frame outputs
         pass
 
 

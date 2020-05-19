@@ -3,9 +3,10 @@ from objects.stateConsts import active_s, alternate_s, disabled_s, pressed_s, re
 from objects.datatypeConsts import *
 from forgeExceptions import DevException
 
-# TOFIX Check selection style params
-
 SELECTION_STYLE_BASE = [
+    ('background', color_t),
+    ('textColor', color_t),
+    ('imageLoc', str_t),
     ('indicatorBackground', color_t),
     ('indicatorColor', color_t),
     ('indicatorPadding', intList_t),
@@ -19,6 +20,9 @@ selection_states = [
 
 # Used for Check/Radio Button
 class SelectionStyle(Style):
+    def outputStyle(self):
+        pass
+
     def __init__(self, name, buttonType: str):
 
         super().__init__(name, SELECTION_STYLE_BASE, selection_states)

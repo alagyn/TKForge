@@ -8,7 +8,6 @@ WINDOW_STYLE = [
 
 
 class WindowStyle(Style):
-    # TODO WindowStyle output
     def outputStyle(self):
         pass
 

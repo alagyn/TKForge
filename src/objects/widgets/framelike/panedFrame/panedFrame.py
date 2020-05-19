@@ -19,7 +19,6 @@ PANED_FRAME_REC = [
 
 
 class PanedFrame(Widget, Container):
-    # TODO PanedFrame output
     def declaration(self):
         pass
 

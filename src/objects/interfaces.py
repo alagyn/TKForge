@@ -5,4 +5,3 @@ class Container(ABC):
     @abstractmethod
     def load(self, obj):
         pass
-

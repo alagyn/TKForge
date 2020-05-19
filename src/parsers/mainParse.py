@@ -42,7 +42,6 @@ def startParse(bo: BuildObject, infile: str):
 
     while idx < length:
         idx = parseNextCmd(lines, idx, bo)
-        # TODO add toplevel to BO
 
 
 def parseNextCmd(lines: List[str], idx: int, bo: BuildObject, parent: ParseObject = None) -> int:

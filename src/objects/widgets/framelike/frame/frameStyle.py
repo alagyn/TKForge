@@ -22,7 +22,6 @@ FRAME_STATES = [
 
 class FrameStyle(Style):
     def outputStyle(self):
-        # TODO Frame style output
         pass
 
     def __init__(self, name):
