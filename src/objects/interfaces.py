@@ -3,5 +3,5 @@ from abc import ABC, abstractmethod
 
 class Container(ABC):
     @abstractmethod
-    def load(self, obj):
+    def load(self, objName: str, *, placement=None):
         pass

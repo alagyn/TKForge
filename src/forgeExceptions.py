@@ -16,10 +16,10 @@ class InvalidParamException(ForgeException):
 
 
 class InvalidParamTypeException(ForgeException):
-    def __init__(self, objName: str, paramName: str, validType: str, curType: str):
+    def __init__(self, objName: str, paramName: str, validType: str):
         super().__init__()
         self.message = f'Object "{objName}": Parameter "{paramName}": ' \
-                       f'Invalid type: Expected{validType}, got {curType}'
+                       f'Invalid type: Expected{validType}'
 
 
 class InvalidDatatypeException(ForgeException):
@@ -44,6 +44,12 @@ class ClaimException(ForgeException):
     def __init__(self, objName: str, curParent: str, invalidParent: str):
         super().__init__()
         self.message = f'Object "{objName}" already loaded into "{curParent}", invalid load into "{invalidParent}"'
+
+
+class LoadException(ForgeException):
+    def __init__(self, objName, line):
+        super().__init__()
+        self.message = f'Cannot load widget into object "{objName}", not a container'
 
 
 class DevException(ForgeException):

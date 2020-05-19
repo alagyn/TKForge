@@ -1,4 +1,4 @@
-from typing import Dict, Tuple
+from typing import Dict, Tuple, Type
 
 from objects.parseObject import Widget, Style
 from objects.widgets.buttons.button.button import Button
@@ -41,7 +41,7 @@ from objects.widgets.text.text import TextBox
 from objects.widgets.treeview.treeview import TreeView
 from objects.widgets.treeview.treeviewStyle import TreeViewStyle
 
-OBJECT_TYPES: Dict[str, Tuple[Widget, Style]] = {
+OBJECT_TYPES: Dict[str, Tuple[Type[Widget], Type[Style]]] = {
     'Button': (Button, ButtonStyle),
     'CheckButton': (CheckButton, CheckButtonStyle),
     'RadioButton': (RadioButton, RadioButtonStyle),
