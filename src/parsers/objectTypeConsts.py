@@ -4,6 +4,12 @@ from objects.widgets.buttons.selectionButton.radioButton import RadioButton
 from objects.widgets.canvas.canvas import Canvas
 from objects.widgets.combobox.combobox import Combobox
 from objects.widgets.entry.entry import Entry
+from objects.widgets.framelike.frame.frame import Frame
+from objects.widgets.framelike.notebook.notebook import Notebook
+from objects.widgets.framelike.notebook.page import NotebookPage
+from objects.widgets.framelike.panedFrame.pane import Pane
+from objects.widgets.framelike.panedFrame.panedFrame import PanedFrame
+from objects.widgets.framelike.window.window import Window
 from objects.widgets.label.label import Label
 from objects.widgets.listbox.listbox import Listbox
 from objects.widgets.progressbar.progressbar import Progressbar
@@ -21,7 +27,12 @@ OBJECT_TYPES = {
     'RadioButton': RadioButton,
     'Canvas': Canvas,
     'Combobox': Combobox,
-    # TODO Framelike
+    'Window': Window,
+    'Frame': Frame,
+    'PanedFrame': PanedFrame,
+    'Pane': Pane,
+    'Notebook': Notebook,
+    'Page': NotebookPage,
     'Entry': Entry,
     'Label': Label,
     'Listbox': Listbox,

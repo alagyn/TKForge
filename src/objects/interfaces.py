@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
 
 
-class MenuLoad(ABC):
+class Container(ABC):
     @abstractmethod
-    def loadIntoMenu(self):
+    def load(self, obj):
         pass
+

@@ -71,6 +71,7 @@ class Widget(ParseObject, abc.ABC):
     def outputParams(self):
         pass
 
+    @abc.abstractmethod
     def postInit(self):
         pass
 
