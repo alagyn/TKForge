@@ -10,7 +10,7 @@ class ParseObject(abc.ABC):
     TopLevel abstract for a parsed object
     """
 
-    def __init__(self, name: str, validParams: List[Tuple[str, str]], recommParams: List[str]):
+    def __init__(self, name: str, validParams: List[Tuple[str, str, str]], recommParams: List[str]):
         """
         Constructor
 
@@ -67,8 +67,8 @@ class ParseObject(abc.ABC):
 
 
 class Widget(ParseObject, abc.ABC):
-    def __init__(self, name, validParams: List[Tuple[str, str]], requiredParams: List[str]):
-        super().__init__(name, validParams + [('style', name_t)], requiredParams)
+    def __init__(self, name, validParams: List[Tuple[str, str, str]], requiredParams: List[str]):
+        super().__init__(name, validParams + [('style', 'style', name_t)], requiredParams)
 
     @abc.abstractmethod
     def declaration(self):
@@ -84,7 +84,7 @@ class Widget(ParseObject, abc.ABC):
 
 
 class Style(ParseObject, abc.ABC):
-    def __init__(self, name, validParams: List[Tuple[str, str]], validStates: List[str]):
+    def __init__(self, name, validParams: List[Tuple[str, str, str]], validStates: List[str]):
         super().__init__(name, validParams, [])
         self.validStates = validStates
 

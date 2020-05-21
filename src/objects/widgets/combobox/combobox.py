@@ -4,13 +4,13 @@ from objects.parseObject import Widget
 
 
 COMBO_BOX_VALID = [
-    ('takeFocus', bool_t),
-    ('justify', str_t),
-    ('defaultState', str_t),
-    ('outputVariable', name_t),
-    ('values', strList_t),
-    ('width', int_t),
-    ('height', int_t)
+    ('takeFocus', 'takefocus', bool_t),
+    ('justify', 'justify', str_t),
+    ('defaultState', 'state', str_t),
+    ('outputVariable', 'textvariable', name_t),
+    ('values', 'values', strList_t),
+    ('width', 'width', int_t),
+    ('visibleRows', 'height', int_t)
 
 ]
 

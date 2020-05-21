@@ -17,8 +17,5 @@ PLACE_REQ_PARAM: List[str] = [
 
 
 class Placement(ParseObject):
-    def loadObject(self, obj, placement):
-        pass
-
     def __init__(self, name: str):
         super().__init__(name, PLACE_VALID_PARAMS, PLACE_REQ_PARAM)

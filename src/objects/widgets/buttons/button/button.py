@@ -3,14 +3,12 @@ from objects.parseObject import Widget
 
 
 BUTTON_PARAM = [
-    ('imageLoc', str_t),  # Internal "compound"
-    ('image', str_t),
-    ('takeFocus', bool_t),
-    ('defaultText', str_t),
-    ('textVariable', name_t),
-    ('underline', int_t),  # TODO button accelerator
-    ('width', int_t),
-    ('defaultState', str_t)
+    ('takeFocus', 'takefocus', bool_t),
+    ('text', 'text', str_t),
+    ('textVariable', 'textvariable', name_t),
+    ('acceleratorIdx', 'underline', int_t),
+    ('defaultState', 'state', str_t),
+    ('defaultAction', 'default', bool_t)
 ]
 
 BUTTON_REC = []

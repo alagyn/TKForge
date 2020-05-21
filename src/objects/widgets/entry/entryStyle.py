@@ -5,17 +5,17 @@ from objects.parseObject import Style
 ENTRY_STATES = [disabled_s, focus_s, readonly_s]
 
 ENTRY_STYLE_PARAM = [
-    ('background', color_t),
-    ('borderColor', color_t),
-    ('darkColor', color_t),
-    ('fieldBG', color_t),
-    ('textColor', color_t),
-    ('lightColor', color_t),
-    ('padding', intList_t),
-    ('relief', str_t),
-    ('selectedBG', color_t),
-    ('selectedTextColor', color_t),
-    ('selectedBorderWidth', int_t)
+    ('background', 'background', color_t),
+    ('borderColor', 'bordercolor', color_t),
+    ('darkColor', 'darkcolor', color_t),
+    ('fieldBG', 'fieldbackground', color_t),
+    ('textColor', 'foreground', color_t),
+    ('lightColor', 'lightcolor', color_t),
+    ('padding', 'padding', intList_t),
+    ('relief', 'relief', str_t),
+    ('selectedBG', 'selectedbackground', color_t),
+    ('selectedTextColor', 'selectedforeground', color_t),
+    ('selectedBorderWidth', 'selectedborderwidth', int_t)
 ]
 
 

@@ -2,15 +2,19 @@ from objects.datatypeConsts import color_t, intList_t, str_t, name_t
 from objects.parseObject import Style
 
 NOTEBOOK_STYLE = [
-    ('background', color_t),
-    ('borderColor', color_t),
-    ('darkColor', color_t),
-    ('textColor', color_t),  # Internal foreground, no effect?
-    ('lightColor', color_t),
-    ('externalPadding', intList_t),
-    ('tabPadding', intList_t),
-    ('tabPosition', str_t),  # compass direction i.e. n,ne,s,sw
-    ('tabStyle', name_t)
+    ('background', 'background', color_t),
+    ('borderColor', 'bordercolor', color_t),
+    ('darkColor', 'darkcolor', color_t),
+    ('textColor', 'foreground', color_t),  # no effect?
+    ('lightColor', 'lightcolor', color_t),
+    ('externalPadding', 'padding', intList_t),
+    ('tabPadding', 'tabmargins', intList_t),
+    ('tabPosition', 'tabposition', str_t)  # compass direction i.e. n,ne,s,sw
+
+]
+
+TAB = [
+    ('tabStyle', '', name_t)
 ]
 
 
@@ -19,4 +23,4 @@ class NotebookStyle(Style):
         pass
 
     def __init__(self, name):
-        super().__init__(name, NOTEBOOK_STYLE, [])
+        super().__init__(name, NOTEBOOK_STYLE + TAB, [])

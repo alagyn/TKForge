@@ -6,13 +6,18 @@ from objects.datatypeConsts import *
 from forgeExceptions import DevException
 
 SELECTION_STYLE_BASE = [
-    ('background', color_t),
-    ('textColor', color_t),
-    ('imageLoc', str_t),
-    ('indicatorBackground', color_t),
-    ('indicatorColor', color_t),
-    ('indicatorPadding', intList_t),
-    ('indicatorRelief', str_t)
+    ('background', 'background', color_t),
+    ('textColor', 'foreground', color_t),
+    ('imageLoc', 'compound', str_t),
+    ('indicatorBG', 'indicatorbackground', color_t),
+    ('indicatorColor', 'indicatorcolor', color_t),
+    ('indicatorPadding', 'indicatormargin', intList_t),
+    ('indicatorRelief', 'indicatorrelief', str_t),
+    ('padding', 'padding', intList_t)
+]
+
+IMAGE = [
+    ('image', '', str_t),
 ]
 
 selection_states = [
@@ -24,7 +29,7 @@ selection_states = [
 class SelectionStyle(Style, ABC):
     def __init__(self, name, buttonType: str):
 
-        super().__init__(name, SELECTION_STYLE_BASE, selection_states)
+        super().__init__(name, SELECTION_STYLE_BASE + IMAGE, selection_states)
 
         RADIO = 1
         CHECK = 2

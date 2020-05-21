@@ -2,19 +2,22 @@ from objects.datatypeConsts import str_t, name_t, bool_t, int_t
 from objects.parseObject import Widget
 
 CHECK_V = [
-    ('image', str_t),
-    ('takeFocus', bool_t),
-    ('text', str_t),
-    ('textVariable', name_t),
-    ('underline', int_t),  # TODO check button accelerator
-    ('width', int_t),
-    ('onValue', str_t),
-    ('offValue', str_t),
-    ('outputVariable', name_t)
+    ('takeFocus', 'takefocus', bool_t),
+    ('text', 'text', str_t),
+    ('textVariable', 'textvariable', name_t),
+    ('acceleratorIdx', 'underline', int_t),
+    ('width', 'width', int_t),
+    ('onValue', 'onvalue', str_t),
+    ('offValue', 'offvalue', str_t),
+    ('outputVariable', 'variable', name_t)
+]
+
+COMMAND = [
+    ('command', '', bool_t)
 ]
 
 CHECK_REC = [
-    'onValue', 'offValue', 'outputVariable', 'text'
+    'onValue', 'offValue', 'outputVariable'
 ]
 
 
@@ -29,4 +32,4 @@ class CheckButton(Widget):
         pass
 
     def __init__(self, name):
-        super().__init__(name, CHECK_V, CHECK_REC)
+        super().__init__(name, CHECK_V + COMMAND, CHECK_REC)

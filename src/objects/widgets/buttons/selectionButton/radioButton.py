@@ -2,15 +2,18 @@ from objects.datatypeConsts import name_t, str_t, bool_t, int_t
 from objects.parseObject import Widget
 
 RADIO_V = [
-    ('image', str_t),
-    ('takeFocus', bool_t),
-    ('text', str_t),
-    ('textVariable', name_t),
-    ('underline', int_t),  # TODO RadioBtn accellerator
-    ('width', int_t),
-    ('command', bool_t),
-    ('onValue', str_t),
-    ('outputVariable', name_t)
+    ('takeFocus', 'takefocus', bool_t),
+    ('text', 'text', str_t),
+    ('textVariable', 'textvariable', name_t),
+    ('acceleratorIdx', 'underline', int_t),
+    ('width', 'width', int_t),
+    ('onValue', 'onvalue', str_t),
+    ('outputVariable', 'variable', name_t),
+
+]
+
+COMMAND = [
+    ('command', '', bool_t)
 ]
 
 RADIO_REC = [
@@ -29,4 +32,4 @@ class RadioButton(Widget):
         pass
 
     def __init__(self, name):
-        super().__init__(name, RADIO_V, RADIO_REC)
+        super().__init__(name, RADIO_V + COMMAND, RADIO_REC)
