@@ -3,11 +3,11 @@ from objects.parseObject import ParseObject
 
 
 DIALOG_PARAM = [
-    ('title', str_t),
-    ('text', str_t),
-    ('defaultButtonIdx', int_t),
-    ('buttonLabels', strList_t),
-    ('icon', str_t)
+    ('title', '', str_t),
+    ('text', '', str_t),
+    ('defaultButtonIdx', '', int_t),
+    ('buttonLabels', '', strList_t),
+    ('icon', '', str_t)
 ]
 
 DIALOG_REC = [

@@ -4,7 +4,8 @@ from objects.parseObject import Widget
 
 
 class MenuList(Widget, Container):
-    def load(self, obj):
+
+    def load(self, objName: str, *, placement=None):
         pass
 
     def declaration(self):

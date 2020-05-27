@@ -1,7 +1,7 @@
 # NOTEBOOK
 from typing import List, Tuple
 
-from objects.datatypeConsts import bool_t, intList_t, int_t, floatList_t
+from objects.datatypeConsts import bool_t, intList_t, int_t
 from objects.interfaces import Container
 from objects.parseObject import Widget
 

@@ -1,5 +1,3 @@
-
-
 # WINDOW
 from typing import List, Tuple
 
@@ -7,16 +5,23 @@ from objects.datatypeConsts import intList_t, int_t, bool_t, floatList_t, str_t,
 from objects.interfaces import Container
 from objects.parseObject import Widget
 
-WINDOW_VALID_PARAM: List[Tuple[str, str]] = [
-    ('internalPadding', intList_t),
-    ('borderWidth', int_t),
-    ('takeFocus', bool_t),
-    ('rowWeights', floatList_t),
-    ('colWeights', floatList_t),
-    ('title', str_t),
-    ('size', intList_t),
-    ('loc', intList_t),
-    ('menubar', name_t)
+WINDOW_VALID_PARAM: List[Tuple[str, str, str]] = [
+    ('internalPadding', 'padding', intList_t),
+    ('borderWidth', 'borderwidth', int_t),
+    ('takeFocus', 'takefocus', bool_t),
+    ('width', 'width', int_t),
+    ('height', 'height', int_t)
+]
+
+DATA_PARAM = [
+    ('title', '', str_t),
+    ('loc', '', intList_t),
+    ('menubar', '', name_t)
+]
+
+GRID_PARAM = [
+    ('rowWeights', '', floatList_t),
+    ('colWeights', '', floatList_t)
 ]
 
 WINDOW_REC_PARAM: List[str] = [
@@ -25,6 +30,9 @@ WINDOW_REC_PARAM: List[str] = [
 
 
 class Window(Widget, Container):
+    def load(self, objName: str, *, placement=None):
+        pass
+
     def declaration(self):
         # Gen init and exit functions for clients
 
@@ -36,8 +44,5 @@ class Window(Widget, Container):
     def postInit(self):
         pass
 
-    def load(self, obj):
-        pass
-
     def __init__(self, name):
-        super().__init__(name, WINDOW_VALID_PARAM, WINDOW_REC_PARAM)
+        super().__init__(name, WINDOW_VALID_PARAM + DATA_PARAM + GRID_PARAM, WINDOW_REC_PARAM)

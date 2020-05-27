@@ -3,16 +3,16 @@ from objects.parseObject import Style
 from objects.stateConsts import active_s, disabled_s, focus_s, readonly_s
 
 SPINBOX_STYLE = [
-    ('arrowColor', color_t),
-    ('arrowSize', int_t),
-    ('background', color_t),  # Internal fieldbackground
-    ('borderColor', color_t),
-    ('darkColor', color_t),
-    ('textColor', color_t),
-    ('lightColor', color_t),
-    ('padding', intList_t),
-    ('selectedBG', color_t),
-    ('selectedTextColor', color_t)
+    ('arrowColor', 'arrowcolor', color_t),
+    ('arrowSize', 'arrowsize', int_t),
+    ('background', 'fieldbackground', color_t),
+    ('borderColor', 'bordercolor', color_t),
+    ('darkColor', 'darkcolor', color_t),
+    ('textColor', 'foreground', color_t),
+    ('lightColor', 'lightcolor', color_t),
+    ('padding', 'padding', intList_t),
+    ('selectedBG', 'selectedbackground', color_t),
+    ('selectedTextColor', 'selectedforeground', color_t)
 ]
 
 SPINBOX_STATES = [

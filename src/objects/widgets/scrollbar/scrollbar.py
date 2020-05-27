@@ -2,8 +2,8 @@ from objects.datatypeConsts import bool_t, str_t
 from objects.parseObject import Widget
 
 SCROLL_VALID = [
-    ('orient', str_t),
-    ('takeFocus', bool_t)
+    ('orient', 'orient', str_t),
+    ('takeFocus', 'takefocus', bool_t)
 ]
 
 SCROLL_REC = [

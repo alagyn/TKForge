@@ -5,14 +5,14 @@ from objects.stateConsts import active_s
 SCALE_STYLE_STATES = [active_s]
 
 SCALE_STYLE_PARAM = [
-    ('background', color_t),
-    ('borderWidth', int_t),
-    ('darkColor', color_t),
-    ('grooveWidth', int_t),
-    ('lightColor', color_t),
-    ('sliderWidth', int_t),
-    ('troughColor', color_t),
-    ('troughRelief', str_t)
+    ('background', 'background', color_t),
+    ('borderWidth', 'borderwidth', int_t),
+    ('darkColor', 'darkcolor', color_t),
+    ('grooveWidth', 'groovewidth', int_t),
+    ('lightColor', 'lightcolor', color_t),
+    ('sliderWidth', 'sliderwidth', int_t),
+    ('troughColor', 'troughcolor', color_t),
+    ('troughRelief', 'troughrelief', str_t)
 ]
 
 

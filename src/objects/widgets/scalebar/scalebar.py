@@ -2,13 +2,13 @@ from objects.datatypeConsts import str_t, float_t, name_t, bool_t, int_t
 from objects.parseObject import Widget
 
 SCALEBAR_VALID = [
-    ('takeFocus', bool_t),
-    ('bottomValue', float_t),
-    ('topValue', float_t),
-    ('variable', name_t),
-    ('orient', str_t),
-    ('length', int_t),
-    ('defaultValue', float_t)
+    ('takeFocus', 'takefocus', bool_t),
+    ('bottomValue', 'from', float_t),
+    ('topValue', 'to', float_t),
+    ('variable', 'variable', name_t),
+    ('orient', 'orient', str_t),
+    ('length', 'length', int_t),
+    ('defaultValue', 'value', float_t)
 ]
 
 SCALEBAR_REC = [

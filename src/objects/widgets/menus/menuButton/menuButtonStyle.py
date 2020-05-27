@@ -3,14 +3,17 @@ from objects.parseObject import Style
 from objects.stateConsts import active_s, disabled_s, readonly_s
 
 MENU_BUTTON_STYLE = [
-    ('arrowSize', int_t),
-    ('background', color_t),
-    ('imageLoc', str_t),
-    ('image', str_t),
-    ('textColor', color_t),
-    ('font', str_t),
-    ('padding', intList_t),
-    ('relief', str_t)
+    ('arrowSize', 'arrowsize', int_t),
+    ('background', 'background', color_t),
+    ('imageLoc', 'compound', str_t),
+    ('textColor', 'foreground', color_t),
+    ('font', 'font', str_t),
+    ('padding', 'padding', intList_t),
+    ('relief', 'relief', str_t)
+]
+
+IMAGE = [
+    ('image', str_t)
 ]
 
 MENU_BUTTON_STATES = [

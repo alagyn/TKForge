@@ -3,22 +3,23 @@ from objects.parseObject import Widget
 from objects.datatypeConsts import color_t, int_t, bool_t, str_t
 
 MENU_PARAM = [
-    ('activeBG', color_t),
-    ('activeBorderWidth', int_t),
-    ('activeTextColor', color_t),
-    ('background', color_t),
-    ('borderWidth', int_t),
-    ('disabledTextColor', color_t),
-    ('font', str_t),
-    ('textColor', color_t),
-    ('relief', str_t),
-    ('takeFocus', bool_t),
-    ('selectColor', color_t)
+    ('activeBG', 'activebackground', color_t),
+    ('activeBorderWidth', 'activeborderwidth', int_t),
+    ('activeTextColor', 'activeforeground', color_t),
+    ('background', 'background', color_t),
+    ('borderWidth', 'borderwidth', int_t),
+    ('disabledTextColor', 'sisabledforeground', color_t),
+    ('font', 'font', str_t),
+    ('textColor', 'foreground', color_t),
+    ('relief', 'relief', str_t),
+    ('takeFocus', 'takefocus', bool_t),
+    ('selectColor', 'selectcolor', color_t)
 ]
 
 
 class MenuBar(Widget, Container):
-    def load(self, obj):
+
+    def load(self, objName: str, *, placement=None):
         pass
 
     def __init__(self, name):

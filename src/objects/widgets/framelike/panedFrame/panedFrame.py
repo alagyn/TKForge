@@ -1,23 +1,23 @@
-from objects.datatypeConsts import intList_t, int_t, bool_t, floatList_t, str_t
+from objects.datatypeConsts import int_t, bool_t, str_t
 from objects.interfaces import Container
 from objects.parseObject import Widget
 
 PANED_FRAME_PARAM = [
-    ('internalPadding', intList_t),
-    ('borderWidth', int_t),
-    ('takeFocus', bool_t),
-    ('rowWeights', floatList_t),
-    ('colWeights', floatList_t),
-    ('takeFocus', bool_t),
-    ('orient', str_t)
+    ('takeFocus', 'takefocus', bool_t),
+    ('orient', 'orient', str_t),
+    ('width', 'width', int_t),
+    ('height', 'height', int_t)
 ]
 
 PANED_FRAME_REC = [
-    'orient', 'panes'
+    'orient'
 ]
 
 
 class PanedFrame(Widget, Container):
+    def load(self, objName: str, *, placement=None):
+        pass
+
     def declaration(self):
         pass
 
@@ -25,9 +25,6 @@ class PanedFrame(Widget, Container):
         pass
 
     def postInit(self):
-        pass
-
-    def load(self, obj):
         pass
 
     def __init__(self, name):

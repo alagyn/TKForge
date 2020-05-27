@@ -1,19 +1,21 @@
-from objects.datatypeConsts import float_t, bool_t, strList_t, str_t, name_t, int_t
+from objects.datatypeConsts import float_t, bool_t, strList_t, str_t, name_t
 from objects.parseObject import Widget
 
 SPINBOX_PARAM = [
-    ('takeFocus', bool_t),
-    ('command', bool_t),
-    ('xScroll', name_t),
-    ('validateMode', str_t),
-    ('validate', bool_t),
-    ('width', int_t),
-    ('formatting', str_t),
-    ('bottomVal', float_t),
-    ('topVal', float_t),
-    ('values', strList_t),
-    ('wrap', bool_t),
-    ('incrementVal', float_t)
+    ('takeFocus', 'takefocus', bool_t),
+    ('validateMode', 'validate', str_t),
+    ('format', 'format', str_t),
+    ('bottomVal', 'from', float_t),
+    ('topVal', 'to', float_t),
+    ('values', 'values', strList_t),
+    ('wrap', 'wrap', bool_t),
+    ('incrementVal', 'increment', float_t)
+]
+
+OTHER = [
+    ('command', '', bool_t),
+    ('xScroll', '', name_t),
+    ('validate', '', bool_t),
 ]
 
 SPINBOX_REC = [
@@ -32,5 +34,5 @@ class Spinbox(Widget):
         pass
 
     def __init__(self, name):
-        super().__init__(name, SPINBOX_PARAM, SPINBOX_REC)
+        super().__init__(name, SPINBOX_PARAM + OTHER, SPINBOX_REC)
 

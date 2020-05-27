@@ -2,7 +2,7 @@ from objects.datatypeConsts import color_t
 from objects.parseObject import Style
 
 SEP_STYLE_PARAM = [
-    ('background', color_t)
+    ('background', 'background', color_t)
 ]
 
 

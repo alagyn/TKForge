@@ -1,12 +1,11 @@
-from objects.datatypeConsts import float_t, name_t
+from objects.datatypeConsts import float_t
 from objects.parseObject import Widget
 
 PANE_PARAM = [
-    ('weight', float_t),
-    ('widget', name_t)
+    ('weight', 'weight', float_t)
 ]
 
-PANE_REC = ['widget']
+PANE_REC = []
 
 
 class Pane(Widget):

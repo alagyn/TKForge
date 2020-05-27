@@ -2,19 +2,17 @@ from objects.datatypeConsts import str_t, name_t, bool_t, intList_t, int_t
 from objects.parseObject import Widget
 
 LABEL_VALID = [
-    ('imageLoc', str_t),
-    ('image', str_t),
-    ('padding', intList_t),
-    ('takeFocus', bool_t),
-    ('text', str_t),
-    ('inputVariable', name_t),
-    ('width', int_t),
-    ('justify', str_t),
-    ('defaultState', str_t),
-    ('anchor', str_t),
-    ('wrapLength', int_t),
-    ('underline', int_t),  # TODO label accelerator?
-    ('relief', str_t)
+    ('padding', 'padding', intList_t),
+    ('takeFocus', 'takefocus', bool_t),
+    ('text', 'text', str_t),
+    ('inputVariable', 'textvariable', name_t),
+    ('width', 'width', int_t),
+    ('justify', 'justify', str_t),
+    ('defaultState', 'state', str_t),
+    ('anchor', 'anchor', str_t),
+    ('wrapLength', 'wraplength', int_t),
+    ('acceleratorIdx', 'underline', int_t),
+    ('relief', 'relief', str_t)
 ]
 
 LABEL_REC = [

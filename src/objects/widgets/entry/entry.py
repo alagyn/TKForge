@@ -13,7 +13,7 @@ ENTRY_VALID = [
 ]
 
 VALIDATE = [
-    ('validate', bool_t)
+    ('validate', '', bool_t)
 ]
 
 SCROLL = [

@@ -5,15 +5,15 @@ from objects.stateConsts import active_s, disabled_s
 SCROLL_STYLE_STATES = [active_s, disabled_s]
 
 SCROLL_STYLE_PARAM = [
-    ('arrowColor', color_t),
-    ('arrowSize', int_t),
-    ('background', color_t),
-    ('borderColor', color_t),
-    ('darkColor', color_t),
-    ('foreground', color_t),
-    ('gripCount', int_t),
-    ('lightColor', int_t),
-    ('troughColor', color_t)
+    ('arrowColor', 'arrowcolor', color_t),
+    ('arrowSize', 'arrowsize', int_t),
+    ('background', 'background', color_t),
+    ('borderColor', 'bordercolor', color_t),
+    ('darkColor', 'darkcolor', color_t),
+    ('foreground', 'foreground', color_t),
+    ('gripCount', 'gripcount', int_t),
+    ('lightColor', 'lightcolor', int_t),
+    ('troughColor', 'troughcolor', color_t)
 ]
 
 

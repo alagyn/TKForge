@@ -2,8 +2,8 @@ from objects.datatypeConsts import color_t, str_t
 from objects.parseObject import Style
 
 WINDOW_STYLE = [
-    ('background', color_t),
-    ('relief', str_t)
+    ('background', 'background', color_t),
+    ('relief', 'relief', str_t)
 ]
 
 

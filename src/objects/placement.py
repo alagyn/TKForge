@@ -3,12 +3,12 @@ from typing import List, Tuple
 from objects.datatypeConsts import strList_t, intList_t, int_t
 from .parseObject import ParseObject
 
-PLACE_VALID_PARAMS: List[Tuple[str, str]] = [
-    ('gridLoc', intList_t),
-    ('rowspan', int_t),
-    ('colspan', int_t),
-    ('externPadding', intList_t),
-    ('sticky', strList_t)
+PLACE_VALID_PARAMS: List[Tuple[str, str, str]] = [
+    ('gridLoc', '', intList_t),
+    ('rowspan', '', int_t),
+    ('colspan', '', int_t),
+    ('externPadding', '', intList_t),
+    ('sticky', '', strList_t)
 ]
 
 PLACE_REQ_PARAM: List[str] = [

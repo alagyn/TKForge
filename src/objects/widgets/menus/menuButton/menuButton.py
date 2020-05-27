@@ -3,13 +3,16 @@ from objects.interfaces import Container
 from objects.parseObject import Widget
 
 MENU_BUTTON_PARAM = [
-    ('takeFocus', bool_t),
-    ('defaultText', str_t),
-    ('textVariable', name_t),
-    ('accelerator', int_t),  # TODO menuButton accelerator
-    ('width', int_t),
-    ('direction', str_t),
-    ('menuList', name_t)
+    ('takeFocus', 'takefocus', bool_t),
+    ('defaultText', 'text', str_t),
+    ('textVariable', 'textvariable', name_t),
+    ('acceleratorIdx', 'underline', int_t),
+    ('width', 'width', int_t),
+    ('direction', 'direction', str_t)
+]
+
+MENULIST = [
+    ('menuList', '', name_t)
 ]
 
 MENU_BUTTON_REC = [
@@ -18,6 +21,9 @@ MENU_BUTTON_REC = [
 
 
 class MenuButton(Widget, Container):
+    def load(self, objName: str, *, placement=None):
+        pass
+
     def declaration(self):
         pass
 
@@ -27,8 +33,5 @@ class MenuButton(Widget, Container):
     def postInit(self):
         pass
 
-    def load(self, obj):
-        pass
-
     def __init__(self, name):
-        super().__init__(name, MENU_BUTTON_PARAM, MENU_BUTTON_REC)
+        super().__init__(name, MENU_BUTTON_PARAM + MENULIST, MENU_BUTTON_REC)

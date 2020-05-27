@@ -2,8 +2,8 @@ from objects.datatypeConsts import str_t, bool_t
 from objects.parseObject import Widget
 
 SEP_VALID = [
-    ('takeFocus', bool_t),
-    ('orient', str_t)
+    ('takeFocus', 'takefocus', bool_t),
+    ('orient', 'orient', str_t)
 ]
 
 SEP_REC = [
