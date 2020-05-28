@@ -1,6 +1,6 @@
 from typing import List, Set, Dict
 from objects.parseObject import Style, ParseObject
-from forgeExceptions import ReDefinitionException, ClaimException, ReStyleException
+from forgeExceptions import ReDefinitionException, ClaimException, ReStyleException, UndefinedException
 
 
 class BuildObject:
@@ -40,6 +40,9 @@ class BuildObject:
         if obj.name in self.defined:
             raise ReDefinitionException(obj.name)
 
+        if obj.name in self.undefined:
+            self.undefined.remove(obj.name)
+
         self.defined[obj.name] = obj
 
     def claimObject(self, childName: str, parentName: str):
@@ -69,3 +72,12 @@ class BuildObject:
             raise ReStyleException(s.name)
 
         self.styles[s.name] = s
+
+    def checkClaims(self):
+        """
+        Checks if every name that has been claimed was defined.
+        :return: None, raises parseException if failure
+        """
+
+        if len(self.undefined) > 0:
+            UndefinedException(list(self.undefined))

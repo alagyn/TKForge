@@ -1,5 +1,5 @@
-from typing import List, Dict, Any, Set, Tuple
 import abc
+from typing import Dict, Any, Set, Tuple
 
 from forgeExceptions import *
 from objects.datatypeConsts import name_t
@@ -70,6 +70,17 @@ class Widget(ParseObject, abc.ABC):
     def __init__(self, name, validParams: List[Tuple[str, str, str]], requiredParams: List[str]):
         super().__init__(name, validParams + [('style', 'style', name_t)], requiredParams)
 
+    @staticmethod
+    def printWidgetConfig(name: str, vals: List[Tuple[str, str]]) -> str:
+        out = f'{name}.configure( '
+        for x in range(0, len(vals)):
+            out += f'{vals[x][0]}={vals[x][1]}'
+            if x != len(vals):
+                out += ', '
+
+        out += ')\n'
+        return out
+
     @abc.abstractmethod
     def declaration(self):
         pass
@@ -87,6 +98,15 @@ class Style(ParseObject, abc.ABC):
     def __init__(self, name, validParams: List[Tuple[str, str, str]], validStates: List[str]):
         super().__init__(name, validParams, [])
         self.validStates = validStates
+
+    @staticmethod
+    def printStyleConfig(name: str, vals: List[Tuple[str, str]]) -> str:
+        out = f'ttk.Style().configure("{name}"'
+        for x in vals:
+            out += f', {x[0]}={x[1]}'
+
+        out += ')\n'
+        return out
 
     @abc.abstractmethod
     def outputStyle(self):

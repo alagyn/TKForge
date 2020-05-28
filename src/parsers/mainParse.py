@@ -163,15 +163,22 @@ def parseLoadCmd(lines, idx, bo, parent: ParseObject, match) -> int:
     name = match.group('name')
     bo.claimObject(name, parent.name)
 
-    if match.group('brace') is not None:
-        idx += 1
-        if lines[idx] != '{':
-            raise ParseException(lines[idx], 'Missing opening curly bracket of placement data')
-        else:
-            idx += 1
+    placement = None
+    read = False
 
-    placement = Placement(f'__{name}_Placement')
-    idx = parseObject(lines, idx, bo, placement)
+    idx += 1
+
+    if match.group('brace') is None:
+        if lines[idx] == '{':
+            idx += 1
+            read = True
+    else:
+        read = True
+
+    if read:
+        placement = Placement(f'__{name}_Placement')
+        idx = parseObject(lines, idx, bo, placement)
+
 
     if not isinstance(parent, Container):
         raise LoadException(parent.name, lines[idx])

@@ -29,6 +29,8 @@ def forge(inputFiles: List[str], *, options):
     try:
         for x in inputFiles:
             startParse(bo, x)
+
+        bo.checkClaims()
         # TODO build output func call params
         outputBuild(bo)
     except ForgeException as e:

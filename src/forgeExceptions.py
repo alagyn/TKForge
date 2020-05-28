@@ -1,3 +1,6 @@
+from typing import List
+
+
 class ForgeException(Exception):
     def __init__(self):
         super().__init__()
@@ -44,6 +47,14 @@ class ClaimException(ForgeException):
     def __init__(self, objName: str, curParent: str, invalidParent: str):
         super().__init__()
         self.message = f'Object "{objName}" already loaded into "{curParent}", invalid load into "{invalidParent}"'
+
+
+class UndefinedException(ForgeException):
+    def __init__(self, names: List[str]):
+        super().__init__()
+        self.message = f'Objects have been loaded, but not defined: '
+        for x in names:
+            self.message += f'"{x}" '
 
 
 class LoadException(ForgeException):
