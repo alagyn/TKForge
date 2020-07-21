@@ -1,4 +1,4 @@
-from typing import List, Set, Dict
+from typing import Set, Dict
 from objects.parseObject import Style, ParseObject
 from forgeExceptions import ReDefinitionException, ClaimException, ReStyleException, UndefinedException
 
@@ -8,9 +8,6 @@ class BuildObject:
         """
         Initializes a new empty BuildObject
         """
-
-        # List of python imports for functions
-        self.imports: List[str] = []
 
         # Dict of every object that has been defined
         # K: name of object

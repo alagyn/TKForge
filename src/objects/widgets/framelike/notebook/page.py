@@ -6,7 +6,7 @@ PAGE_PARAM = [
     ('padding', 'padding', intList_t),
     ('sticky', 'sticky', str_t),
     ('defState', 'state', str_t),
-    ('tabAccelerator', 'underline', int_t)  # TODO notebook accelerator
+    ('tabAccelerator', 'underline', int_t)
 ]
 
 IMAGE = [

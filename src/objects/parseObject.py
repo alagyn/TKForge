@@ -65,6 +65,22 @@ class ParseObject(abc.ABC):
             if param not in self.params:
                 print(f'Object {self.name}: recommend defining parameter "{param}"')
 
+    @abc.abstractmethod
+    def outputInit(self):
+        pass
+
+    @abc.abstractmethod
+    def outputConfig(self):
+        pass
+
+    @abc.abstractmethod
+    def outputPost(self):
+        pass
+
+    @abc.abstractmethod
+    def outputAccess(self):
+        pass
+
 
 class Widget(ParseObject, abc.ABC):
     def __init__(self, name, validParams: List[Tuple[str, str, str]], requiredParams: List[str]):
@@ -80,18 +96,6 @@ class Widget(ParseObject, abc.ABC):
 
         out += ')\n'
         return out
-
-    @abc.abstractmethod
-    def declaration(self):
-        pass
-
-    @abc.abstractmethod
-    def outputParams(self):
-        pass
-
-    @abc.abstractmethod
-    def postInit(self):
-        pass
 
 
 class Style(ParseObject, abc.ABC):

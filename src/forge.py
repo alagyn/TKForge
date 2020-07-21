@@ -41,7 +41,3 @@ def forge(inputFiles: List[str], *, options):
 # TODO
 #   2) Code parsers for each
 #   3) Code output functionality
-
-# TODO Image Param
-#   Add to style and allow state specification
-#   Move imageLoc Param to style
