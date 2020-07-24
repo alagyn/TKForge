@@ -10,7 +10,7 @@ class ParseObject(abc.ABC):
     TopLevel abstract for a parsed object
     """
 
-    def __init__(self, name: str, validParams: List[Tuple[str, str, str]], recommParams: List[str]):
+    def __init__(self, name: str, validParams: List[Tuple[str, str, str]], recommParams: List[str], classType: str):
         """
         Constructor
 
@@ -20,6 +20,7 @@ class ParseObject(abc.ABC):
         """
         super().__init__()
         self.name: str = name
+        self.classType = classType
 
         # Generate Dictionary of parameter names and datatypes
         self.validParameters: Dict[str, str] = {k: v for k, v in validParams}
@@ -78,8 +79,11 @@ class ParseObject(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def outputAccess(self):
+    def outputCommand(self):
         pass
+
+    def defaultInit(self) -> str:
+        return f'self.{self.name} = {self.classType}()'
 
 
 class Widget(ParseObject, abc.ABC):

@@ -1,6 +1,5 @@
 # File output
 from objects.buildObject import BuildObject
-from typing import List
 
 
 # TODO standard dialog function
@@ -11,32 +10,36 @@ from typing import List
 def outputBuild(build: BuildObject, mainFile: str, accessFile: str, listingFile: str) -> None:
 
     with open(mainFile, mode='w') as f:
-        tabs: str = ''
-
         # TODO output intro
         #   define master containing class?
 
+        intro = f'import tkinter as tk\n' \
+                f'class ForgeGUI:\n' \
+                f'    def __init__(self):\n'
 
-        lines: List[str] = []
+        tabs: str = '\t\t'
+
+        f.write(intro)
+
+        lines: str = ''
         for x in build.defined.values():
             lines += tabs + x.outputInit() + '\n'
 
+        f.write(lines + '\n')
 
-        # TODO output init
-
-        lines = []
+        lines = ''
 
         for x in build.defined.values():
             lines += tabs + x.outputConfig() + '\n'
 
-        # TODO output config
+        f.write(lines + '\n')
 
-        lines = []
+        lines = ''
 
         for x in build.defined.values():
             lines += tabs + x.outputPost() + '\n'
 
-        # TODO output post
+        f.write(lines + '\n')
 
         # TODO output end
 
