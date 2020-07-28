@@ -25,5 +25,5 @@ class Separator(Widget):
         pass
 
 
-def __init__(self, name):
-    super().__init__(name, SEP_VALID, SEP_REC)
+    def __init__(self, name):
+        super().__init__(name, SEP_VALID, SEP_REC)

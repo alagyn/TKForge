@@ -36,5 +36,5 @@ class NotebookPage(Widget):
         pass
 
 
-def __init__(self, name):
-    super().__init__(name, PAGE_PARAM + IMAGE + DATA, PAGE_REC)
+    def __init__(self, name):
+        super().__init__(name, PAGE_PARAM + IMAGE + DATA, PAGE_REC)

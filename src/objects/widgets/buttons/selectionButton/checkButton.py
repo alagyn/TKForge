@@ -36,4 +36,4 @@ class CheckButton(Widget):
 
 
     def __init__(self, name):
-        super().__init__(name, CHECK_V + COMMAND, CHECK_REC, 'Checkbutton')
+        super().__init__(name, CHECK_V + COMMAND, CHECK_REC)

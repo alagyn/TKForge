@@ -22,5 +22,5 @@ class Pane(Widget):
         pass
 
 
-def __init__(self, name):
-    super().__init__(name, PANE_PARAM, PANE_REC)
+    def __init__(self, name):
+        super().__init__(name, PANE_PARAM, PANE_REC)

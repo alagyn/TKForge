@@ -25,5 +25,5 @@ class Scrollbar(Widget):
         pass
 
 
-def __init__(self, name):
-    super().__init__(name, SCROLL_VALID, SCROLL_REC)
+    def __init__(self, name):
+        super().__init__(name, SCROLL_VALID, SCROLL_REC)

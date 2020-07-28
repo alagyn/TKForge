@@ -32,4 +32,4 @@ class Combobox(Widget):
 
 
     def __init__(self, name):
-        super().__init__(name, COMBO_BOX_VALID, COMBO_BOX_REC, 'Combobox')
+        super().__init__(name, COMBO_BOX_VALID, COMBO_BOX_REC)

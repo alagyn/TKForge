@@ -36,4 +36,4 @@ class TreeView(Widget):
 
 
     def __init__(self, name):
-        super().__init__(name, TREE_PARAM + OTHER, TREE_REC, 'Treeview')
+        super().__init__(name, TREE_PARAM + OTHER, TREE_REC)

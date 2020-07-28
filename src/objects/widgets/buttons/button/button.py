@@ -29,5 +29,5 @@ class Button(Widget):
         pass
 
     def __init__(self, name):
-        super().__init__(name, BUTTON_PARAM, BUTTON_REC, 'Button')
+        super().__init__(name, BUTTON_PARAM, BUTTON_REC)
 

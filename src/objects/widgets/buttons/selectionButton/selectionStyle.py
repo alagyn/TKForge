@@ -27,7 +27,7 @@ class RadioButtonStyle(Style):
         pass
 
     def __init__(self, name):
-        super().__init__(name, SELECTION_STYLE_BASE + IMAGE, selection_states, 'TRadiobutton')
+        super().__init__(name, SELECTION_STYLE_BASE + IMAGE, selection_states)
 
 
 class CheckButtonStyle(Style):
@@ -35,4 +35,4 @@ class CheckButtonStyle(Style):
         pass
 
     def __init__(self, name):
-        super().__init__(name, SELECTION_STYLE_BASE + IMAGE, selection_states, 'TCheckbutton')
+        super().__init__(name, SELECTION_STYLE_BASE + IMAGE, selection_states)

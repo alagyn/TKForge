@@ -26,4 +26,4 @@ class Canvas(Widget):
         pass
 
     def __init__(self, name):
-        super().__init__(name, CANVAS_PARAM + SCROLL, [], 'Canvas')
+        super().__init__(name, CANVAS_PARAM + SCROLL, [])

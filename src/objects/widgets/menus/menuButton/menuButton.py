@@ -37,5 +37,5 @@ class MenuButton(Widget, Container):
         pass
 
 
-def __init__(self, name):
-    super().__init__(name, MENU_BUTTON_PARAM + MENULIST, MENU_BUTTON_REC)
+    def __init__(self, name):
+        super().__init__(name, MENU_BUTTON_PARAM + MENULIST, MENU_BUTTON_REC)

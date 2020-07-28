@@ -10,7 +10,7 @@ class ParseObject(abc.ABC):
     TopLevel abstract for a parsed object
     """
 
-    def __init__(self, name: str, validParams: List[Tuple[str, str, str]], recommParams: List[str], classType: str):
+    def __init__(self, name: str, validParams: List[Tuple[str, str, str]], recommParams: List[str]):
         """
         Constructor
 
@@ -20,7 +20,6 @@ class ParseObject(abc.ABC):
         """
         super().__init__()
         self.name: str = name
-        self.classType = classType
 
         # Generate Dictionary of parameter names and datatypes
         self.validParameters: Dict[str, str] = {k: v for k, v in validParams}
@@ -68,8 +67,8 @@ class ParseObject(abc.ABC):
 
 
 class Widget(ParseObject, abc.ABC):
-    def __init__(self, name, validParams: List[Tuple[str, str, str]], requiredParams: List[str], classType: str):
-        super().__init__(name, validParams + [('style', 'style', name_t)], requiredParams, classType)
+    def __init__(self, name, validParams: List[Tuple[str, str, str]], requiredParams: List[str]):
+        super().__init__(name, validParams + [('style', 'style', name_t)], requiredParams)
 
     @abc.abstractmethod
     def outputInit(self):
@@ -87,8 +86,8 @@ class Widget(ParseObject, abc.ABC):
     def outputCommand(self):
         pass
 
-    def defaultInit(self) -> str:
-        return f'self.{self.name} = {self.classType}()\n'
+    def defaultInit(self, classType) -> str:
+        return f'self.{self.name} = {classType}()\n'
 
     def defaultConfig(self, paramList: List[str]) -> str:
         out = f'self.{self.name}.configure( '
@@ -104,16 +103,18 @@ class Widget(ParseObject, abc.ABC):
 
 
 class Style(ParseObject, abc.ABC):
-    def __init__(self, name, validParams: List[Tuple[str, str, str]], validStates: List[str], classType: str):
-        super().__init__(name, validParams, [], classType)
+    def __init__(self, name, validParams: List[Tuple[str, str, str]], validStates: List[str]):
+        super().__init__(name, validParams, [])
         self.validStates = validStates
 
     @abc.abstractmethod
     def outputStyle(self) -> str:
         pass
 
-    def defaultStyleOutput(self, paramList: List[str]) -> str:
-        out = f"ttk.Style().configure( '{self.name}.{self.classType}'"
+    def defaultStyleOutput(self, paramList: List[str], classType) -> str:
+
+        # TODO Style output: handle dynamic states
+        out = f"ttk.Style().configure( '{self.name}.{classType}'"
 
         for x in paramList:
             out += f', {x}={self.params[x]}'

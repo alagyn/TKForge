@@ -37,5 +37,5 @@ class Spinbox(Widget):
         pass
 
 
-def __init__(self, name):
-    super().__init__(name, SPINBOX_PARAM + OTHER, SPINBOX_REC)
+    def __init__(self, name):
+        super().__init__(name, SPINBOX_PARAM + OTHER, SPINBOX_REC)

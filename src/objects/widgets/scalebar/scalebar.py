@@ -30,5 +30,5 @@ class Scalebar(Widget):
         pass
 
 
-def __init__(self, name):
-    super().__init__(name, SCALEBAR_VALID, SCALEBAR_REC)
+    def __init__(self, name):
+        super().__init__(name, SCALEBAR_VALID, SCALEBAR_REC)

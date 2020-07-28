@@ -30,5 +30,5 @@ class Progressbar(Widget):
         pass
 
 
-def __init__(self, name):
-    super().__init__(name, PROGRESS_BAR_VALID, PROGRESS_BAR_REC)
+    def __init__(self, name):
+        super().__init__(name, PROGRESS_BAR_VALID, PROGRESS_BAR_REC)

@@ -17,5 +17,5 @@ DIALOG_REC = [
 
 class Dialog(ParseObject):
     def __init__(self, name):
-        super().__init__(name, DIALOG_PARAM, DIALOG_REC, '')
+        super().__init__(name, DIALOG_PARAM, DIALOG_REC)
 

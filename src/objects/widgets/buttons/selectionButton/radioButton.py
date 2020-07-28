@@ -36,4 +36,4 @@ class RadioButton(Widget):
 
 
     def __init__(self, name):
-        super().__init__(name, RADIO_V + COMMAND, RADIO_REC, 'Radiobutton')
+        super().__init__(name, RADIO_V + COMMAND, RADIO_REC)

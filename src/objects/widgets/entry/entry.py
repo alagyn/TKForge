@@ -40,4 +40,4 @@ class Entry(Widget):
 
 
     def __init__(self, name):
-        super().__init__(name, ENTRY_VALID + SCROLL + VALIDATE, ENTRY_REC, 'Entry')
+        super().__init__(name, ENTRY_VALID + SCROLL + VALIDATE, ENTRY_REC)

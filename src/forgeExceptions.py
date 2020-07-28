@@ -60,7 +60,7 @@ class UndefinedException(ForgeException):
 class LoadException(ForgeException):
     def __init__(self, objName, line):
         super().__init__()
-        self.message = f'Cannot load widget into object "{objName}", not a container'
+        self.message = f'Cannot load widget into object "{objName}", not a container: {line}'
 
 
 class DevException(ForgeException):

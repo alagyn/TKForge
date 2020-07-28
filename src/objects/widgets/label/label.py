@@ -35,4 +35,4 @@ class Label(Widget):
 
 
     def __init__(self, name):
-        super().__init__(name, LABEL_VALID, LABEL_REC, 'TLabel')
+        super().__init__(name, LABEL_VALID, LABEL_REC)

@@ -32,7 +32,10 @@ def forge(inputFiles: List[str], *, options):
 
         bo.checkClaims()
         # TODO build output func call params
-        outputBuild(bo)
+        accessFile = ''
+        listingFile = ''
+        mainFile = ''
+        outputBuild(bo, mainFile=mainFile, accessFile=accessFile, listingFile=listingFile)
     except ForgeException as e:
         print(e.message)
 

@@ -30,6 +30,5 @@ class PanedFrame(Widget, Container):
     def outputInit(self):
         pass
 
-
-def __init__(self, name):
-    super().__init__(name, PANED_FRAME_PARAM, PANED_FRAME_REC)
+    def __init__(self, name):
+        super().__init__(name, PANED_FRAME_PARAM, PANED_FRAME_REC, 'Panedwindow')
