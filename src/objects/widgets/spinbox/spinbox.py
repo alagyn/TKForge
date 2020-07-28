@@ -24,15 +24,18 @@ SPINBOX_REC = [
 
 
 class Spinbox(Widget):
-    def declaration(self):
+    def outputConfig(self):
         pass
 
-    def outputParams(self):
+    def outputPost(self):
         pass
 
-    def postInit(self):
+    def outputCommand(self):
         pass
 
-    def __init__(self, name):
-        super().__init__(name, SPINBOX_PARAM + OTHER, SPINBOX_REC)
+    def outputInit(self):
+        pass
 
+
+def __init__(self, name):
+    super().__init__(name, SPINBOX_PARAM + OTHER, SPINBOX_REC)

@@ -31,4 +31,4 @@ class FrameStyle(Style):
         pass
 
     def __init__(self, name):
-        super().__init__(name, FRAME_STYLE + LABEL_FRAME + LABEL, FRAME_STATES)
+        super().__init__(name, FRAME_STYLE + LABEL_FRAME + LABEL, FRAME_STATES, 'TFrame')

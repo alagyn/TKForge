@@ -21,4 +21,4 @@ class LabelStyle(Style):
         pass
 
     def __init__(self, name):
-        super().__init__(name, LABEL_STYLE_PARAM + IMAGE, LABEL_STATES)
+        super().__init__(name, LABEL_STYLE_PARAM + IMAGE, LABEL_STATES, 'TLabel')

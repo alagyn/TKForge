@@ -25,11 +25,14 @@ class MenuBar(Widget, Container):
     def __init__(self, name):
         super().__init__(name, MENU_PARAM, [])
 
-    def declaration(self):
+    def outputConfig(self):
         pass
 
-    def outputParams(self):
+    def outputPost(self):
         pass
 
-    def postInit(self):
+    def outputCommand(self):
+        pass
+
+    def outputInit(self):
         pass

@@ -4,7 +4,7 @@ from .parseObject import ParseObject
 
 class Variable(ParseObject):
     def __init__(self, name, datatype):
-        super().__init__(name, [('value', 'value', datatype)], ['value'])
+        super().__init__(name, [('value', 'value', datatype)], ['value'], '')
 
 
 class StringVariable(Variable):

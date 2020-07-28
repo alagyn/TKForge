@@ -1,8 +1,6 @@
 from objects.datatypeConsts import strList_t, name_t, str_t, bool_t, int_t
 from objects.parseObject import Widget
 
-
-
 COMBO_BOX_VALID = [
     ('takeFocus', 'takefocus', bool_t),
     ('justify', 'justify', str_t),
@@ -20,14 +18,18 @@ COMBO_BOX_REC = [
 
 
 class Combobox(Widget):
-    def declaration(self):
+    def outputConfig(self):
         pass
 
-    def outputParams(self):
+    def outputPost(self):
         pass
 
-    def postInit(self):
+    def outputCommand(self):
         pass
+
+    def outputInit(self):
+        pass
+
 
     def __init__(self, name):
-        super().__init__(name, COMBO_BOX_VALID, COMBO_BOX_REC)
+        super().__init__(name, COMBO_BOX_VALID, COMBO_BOX_REC, 'Combobox')

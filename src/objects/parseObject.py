@@ -66,6 +66,11 @@ class ParseObject(abc.ABC):
             if param not in self.params:
                 print(f'Object {self.name}: recommend defining parameter "{param}"')
 
+
+class Widget(ParseObject, abc.ABC):
+    def __init__(self, name, validParams: List[Tuple[str, str, str]], requiredParams: List[str], classType: str):
+        super().__init__(name, validParams + [('style', 'style', name_t)], requiredParams, classType)
+
     @abc.abstractmethod
     def outputInit(self):
         pass
@@ -83,39 +88,35 @@ class ParseObject(abc.ABC):
         pass
 
     def defaultInit(self) -> str:
-        return f'self.{self.name} = {self.classType}()'
+        return f'self.{self.name} = {self.classType}()\n'
 
-
-class Widget(ParseObject, abc.ABC):
-    def __init__(self, name, validParams: List[Tuple[str, str, str]], requiredParams: List[str]):
-        super().__init__(name, validParams + [('style', 'style', name_t)], requiredParams)
-
-    @staticmethod
-    def printWidgetConfig(name: str, vals: List[Tuple[str, str]]) -> str:
-        out = f'{name}.configure( '
-        for x in range(0, len(vals)):
-            out += f'{vals[x][0]}={vals[x][1]}'
-            if x != len(vals):
+    def defaultConfig(self, paramList: List[str]) -> str:
+        out = f'self.{self.name}.configure( '
+        size = len(paramList)
+        for x, i in paramList, range(size):
+            out += f'{x}={self.params[x]}'
+            if i < size:
                 out += ', '
 
         out += ')\n'
+
         return out
 
 
 class Style(ParseObject, abc.ABC):
-    def __init__(self, name, validParams: List[Tuple[str, str, str]], validStates: List[str]):
-        super().__init__(name, validParams, [])
+    def __init__(self, name, validParams: List[Tuple[str, str, str]], validStates: List[str], classType: str):
+        super().__init__(name, validParams, [], classType)
         self.validStates = validStates
 
-    @staticmethod
-    def printStyleConfig(name: str, vals: List[Tuple[str, str]]) -> str:
-        out = f'ttk.Style().configure("{name}"'
-        for x in vals:
-            out += f', {x[0]}={x[1]}'
+    @abc.abstractmethod
+    def outputStyle(self) -> str:
+        pass
+
+    def defaultStyleOutput(self, paramList: List[str]) -> str:
+        out = f"ttk.Style().configure( '{self.name}.{self.classType}'"
+
+        for x in paramList:
+            out += f', {x}={self.params[x]}'
 
         out += ')\n'
         return out
-
-    @abc.abstractmethod
-    def outputStyle(self):
-        pass

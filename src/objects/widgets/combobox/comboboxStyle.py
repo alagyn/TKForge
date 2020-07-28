@@ -42,4 +42,4 @@ class ComboboxStyle(Style):
         pass
 
     def __init__(self, name):
-        super().__init__(name, STYLE_PARAM + POPDOWN + LIST, STATES)
+        super().__init__(name, STYLE_PARAM + POPDOWN + LIST, STATES, 'TCombobox')

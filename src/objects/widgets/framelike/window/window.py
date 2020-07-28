@@ -30,6 +30,18 @@ WINDOW_REC_PARAM: List[str] = [
 
 
 class Window(Widget, Container):
+    def outputInit(self):
+        pass
+
+    def outputConfig(self):
+        pass
+
+    def outputPost(self):
+        pass
+
+    def outputCommand(self):
+        pass
+
     def load(self, objName: str, *, placement=None):
         pass
 

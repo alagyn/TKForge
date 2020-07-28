@@ -33,4 +33,4 @@ class ButtonStyle(Style):
         pass
 
     def __init__(self, name):
-        super().__init__(name, BUTTON_STYLE + IMAGE_PARAM, BUTTON_STATES)
+        super().__init__(name, BUTTON_STYLE + IMAGE_PARAM, BUTTON_STATES, 'TButton')

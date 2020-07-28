@@ -22,14 +22,18 @@ RADIO_REC = [
 
 
 class RadioButton(Widget):
-    def declaration(self):
+    def outputConfig(self):
         pass
 
-    def outputParams(self):
+    def outputPost(self):
         pass
 
-    def postInit(self):
+    def outputCommand(self):
         pass
+
+    def outputInit(self):
+        pass
+
 
     def __init__(self, name):
-        super().__init__(name, RADIO_V + COMMAND, RADIO_REC)
+        super().__init__(name, RADIO_V + COMMAND, RADIO_REC, 'Radiobutton')

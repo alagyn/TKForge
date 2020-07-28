@@ -27,6 +27,18 @@ LABEL = [
 
 
 class Frame(Widget, Container):
+    def outputInit(self):
+        pass
+
+    def outputConfig(self):
+        pass
+
+    def outputPost(self):
+        pass
+
+    def outputCommand(self):
+        pass
+
     def load(self, objName: str, *, placement=None):
         pass
 
@@ -35,9 +47,3 @@ class Frame(Widget, Container):
 
     def __init__(self, name: str):
         super().__init__(name, FRAME_VALID_PARAM + GRID + LABEL, [])
-
-    def outputParams(self):
-        pass
-
-    def declaration(self):
-        pass

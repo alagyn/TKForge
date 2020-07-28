@@ -37,4 +37,4 @@ class TreeViewStyle(Style):
         pass
 
     def __init__(self, name):
-        super().__init__(name, TREE_STYLE + HEADING + ITEM + CELL, TREE_STATES)
+        super().__init__(name, TREE_STYLE + HEADING + ITEM + CELL, TREE_STATES, 'TTreeview')

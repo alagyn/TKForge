@@ -19,14 +19,18 @@ class Notebook(Widget, Container):
     def load(self, objName: str, *, placement=None):
         pass
 
-    def declaration(self):
+    def outputConfig(self):
         pass
 
-    def outputParams(self):
+    def outputPost(self):
         pass
 
-    def postInit(self):
+    def outputCommand(self):
         pass
 
-    def __init__(self, name):
-        super().__init__(name, NOTEBOOK_VALID_PARAM, NOTEBOOK_REC_PARAM)
+    def outputInit(self):
+        pass
+
+
+def __init__(self, name):
+    super().__init__(name, NOTEBOOK_VALID_PARAM, NOTEBOOK_REC_PARAM)

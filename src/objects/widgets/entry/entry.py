@@ -26,14 +26,18 @@ ENTRY_REC = [
 
 
 class Entry(Widget):
-    def declaration(self):
+    def outputConfig(self):
         pass
 
-    def outputParams(self):
+    def outputPost(self):
         pass
 
-    def postInit(self):
+    def outputCommand(self):
         pass
+
+    def outputInit(self):
+        pass
+
 
     def __init__(self, name):
-        super().__init__(name, ENTRY_VALID + SCROLL + VALIDATE, ENTRY_REC)
+        super().__init__(name, ENTRY_VALID + SCROLL + VALIDATE, ENTRY_REC, 'Entry')

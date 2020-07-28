@@ -8,7 +8,6 @@ from objects.buildObject import BuildObject
 
 
 def outputBuild(build: BuildObject, mainFile: str, accessFile: str, listingFile: str) -> None:
-
     with open(mainFile, mode='w') as f:
         # TODO output intro
         #   define master containing class?
@@ -22,22 +21,26 @@ def outputBuild(build: BuildObject, mainFile: str, accessFile: str, listingFile:
         f.write(intro)
 
         lines: str = ''
+
+        for x in build.styles:
+            pass
+
         for x in build.defined.values():
-            lines += tabs + x.outputInit() + '\n'
+            lines += tabs + x.outputInit()
 
         f.write(lines + '\n')
 
         lines = ''
 
         for x in build.defined.values():
-            lines += tabs + x.outputConfig() + '\n'
+            lines += tabs + x.outputConfig()
 
         f.write(lines + '\n')
 
         lines = ''
 
         for x in build.defined.values():
-            lines += tabs + x.outputPost() + '\n'
+            lines += tabs + x.outputPost()
 
         f.write(lines + '\n')
 

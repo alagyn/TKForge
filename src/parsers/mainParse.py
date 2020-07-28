@@ -1,5 +1,4 @@
 # PARSER
-from typing import List
 
 from forgeExceptions import *
 from objects.buildObject import BuildObject

@@ -36,4 +36,4 @@ LISTBOX_REC = [
 
 class Listbox(ParseObject):
     def __init__(self, name):
-        super().__init__(name, LISTBOX_PARAM + SCROLL, LISTBOX_REC)
+        super().__init__(name, LISTBOX_PARAM + SCROLL, LISTBOX_REC, 'TListbox')

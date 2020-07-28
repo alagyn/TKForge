@@ -24,4 +24,4 @@ class EntryStyle(Style):
         pass
 
     def __init__(self, name):
-        super().__init__(name, ENTRY_STYLE_PARAM, ENTRY_STATES)
+        super().__init__(name, ENTRY_STYLE_PARAM, ENTRY_STATES, 'TEntry')

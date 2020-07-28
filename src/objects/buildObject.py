@@ -1,5 +1,5 @@
 from typing import Set, Dict
-from objects.parseObject import Style, ParseObject
+from objects.parseObject import Style, Widget
 from forgeExceptions import ReDefinitionException, ClaimException, ReStyleException, UndefinedException
 
 
@@ -12,7 +12,7 @@ class BuildObject:
         # Dict of every object that has been defined
         # K: name of object
         # V: The object
-        self.defined: Dict[str, ParseObject] = {}
+        self.defined: Dict[str, Widget] = {}
 
         # Set of object names that have been loaded but not defined
         self.undefined: Set[str] = set()
@@ -27,7 +27,7 @@ class BuildObject:
         # V: Style object
         self.styles: Dict[str, Style] = {}
 
-    def defineObject(self, obj: ParseObject):
+    def defineObject(self, obj: Widget):
         """
         Adds a new object to the defined list
 

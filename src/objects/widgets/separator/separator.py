@@ -12,14 +12,18 @@ SEP_REC = [
 
 
 class Separator(Widget):
-    def declaration(self):
+    def outputConfig(self):
         pass
 
-    def outputParams(self):
+    def outputPost(self):
         pass
 
-    def postInit(self):
+    def outputCommand(self):
         pass
 
-    def __init__(self, name):
-        super().__init__(name, SEP_VALID, SEP_REC)
+    def outputInit(self):
+        pass
+
+
+def __init__(self, name):
+    super().__init__(name, SEP_VALID, SEP_REC)
