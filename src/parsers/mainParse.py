@@ -3,10 +3,12 @@
 from forgeExceptions import *
 from objects.buildObject import BuildObject
 from objects.interfaces import Container
-from objects.parseObject import ParseObject
+from objects.parseObject import ParseObject, Widget, Style
 from objects.placement import Placement
-from parsers.regexConsts import MAKE_CMD, SET_CMD, LOAD_CMD, DATATYPE_RE
+from parsers.regexConsts import MAKE_CMD, SET_CMD_WIDGET, LOAD_CMD, DATATYPE_RE, SET_CMD_STYLE
 from .objectTypeConsts import OBJECT_TYPES
+from objects.stateConsts import STATE_NAMES
+from ast import literal_eval
 
 
 def startParse(bo: BuildObject, infile: str):
@@ -43,19 +45,31 @@ def parseNextCmd(lines: List[str], idx: int, bo: BuildObject, parent: ParseObjec
     :param parent: The current parent object
     :return: The index of the next command
     """
+
     match = MAKE_CMD.fullmatch(lines[idx])
     if match is not None:
         return parseMakeCmd(lines, idx, bo, match)
 
     if parent is not None:
-        match = SET_CMD.fullmatch(lines[idx])
-        if match is not None:
-            parseSetCmd(parent, match)
-            return idx + 1
+        if isinstance(parent, Widget):
+            match = SET_CMD_WIDGET.fullmatch(lines[idx])
+            if match is not None:
+                parseWidgetSet(parent, match)
+                return idx + 1
 
-        match = LOAD_CMD.fullmatch(lines[idx])
-        if match is not None:
-            return parseLoadCmd(lines, idx, bo, parent, match)
+            match = LOAD_CMD.fullmatch(lines[idx])
+            if match is not None:
+                return parseLoadCmd(lines, idx, bo, parent, match)
+
+        elif isinstance(parent, Style):
+            match = SET_CMD_STYLE.fullmatch(lines[idx])
+
+            if match is not None:
+                parseStyleSet(parent, match)
+                return idx + 1
+
+        else:
+            raise DevException(f'Load cmd on non-Widget/Style: line {idx}')
 
     raise ParseException(lines[idx], 'Invalid command')
 
@@ -131,13 +145,14 @@ def parseObject(lines: List[str], idx: int, bo: BuildObject, obj: ParseObject) -
     return idx
 
 
-def parseSetCmd(parent: ParseObject, match):
+def parseWidgetSet(parent: Widget, match):
     """
     Parses a set command
     :param parent: The current object being parsed
     :param match: The re match of the command
     :return: None
     """
+
     key = match.group('key')
     value = match.group('value')
 
@@ -146,7 +161,31 @@ def parseSetCmd(parent: ParseObject, match):
     if valueMatch is None:
         raise InvalidParamTypeException(parent.name, key, validDatatype)
 
-    parent.setParam(key, value)
+    parent.setWidgetParam(key, value)
+
+
+def parseStyleSet(parent: Style, match):
+    # Extract key and value
+    key = match.group('key')
+    value = match.group('value')
+
+    # Check value datatype
+    validDatatype = parent.getDatatype(key)
+    valueMatch = DATATYPE_RE[validDatatype].fullmatch(value)
+    if valueMatch is None:
+        raise InvalidParamTypeException(parent.name, key, validDatatype)
+
+    # Extract state list
+    states = match.group('states')
+    # Parse as tuple, cast to list
+    stateList = list(literal_eval(states))
+    # Check for invalid state names
+    for x in stateList:
+        if x not in STATE_NAMES:
+            raise InvalidStyleStateException(parent.name, key, x)
+
+    parent.setStyleParam(key, value, stateList)
+
 
 
 def parseLoadCmd(lines, idx, bo, parent: ParseObject, match) -> int:
@@ -178,10 +217,8 @@ def parseLoadCmd(lines, idx, bo, parent: ParseObject, match) -> int:
         placement = Placement(f'__{name}_Placement')
         idx = parseObject(lines, idx, bo, placement)
 
-
     if not isinstance(parent, Container):
         raise LoadException(parent.name, lines[idx])
 
     parent.load(name, placement=placement)
     return idx
-

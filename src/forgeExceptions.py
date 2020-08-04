@@ -31,6 +31,12 @@ class InvalidDatatypeException(ForgeException):
         self.message = f'Invalid object datatype "{datatype}": "{line}"'
 
 
+class InvalidStyleStateException(ForgeException):
+    def __init__(self, objName, paramName, stateName):
+        super().__init__()
+        self.message = f'Style "{objName}": Param "{paramName}: Invalid State "{stateName}"'
+
+
 class ReDefinitionException(ForgeException):
     def __init__(self, objName: str):
         super().__init__()

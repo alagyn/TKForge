@@ -31,7 +31,7 @@ class ParseObject(abc.ABC):
                 raise DevException(f'Object {self.name}, required param "{x}" not in valid param list')
 
         # Container for parameter values given by the user
-        self.params: Dict[str, Any] = {}
+        self.definedParams: Set[str] = set()
 
     def getDatatype(self, key: str) -> str:
         """
@@ -45,30 +45,19 @@ class ParseObject(abc.ABC):
         except KeyError:
             raise InvalidParamException(self.name, key)
 
-    def setParam(self, key: str, value: Any) -> None:
-        """
-        Sets the value of a parameter
-
-        :param key: The parameter name
-        :param value: The parameter's value
-        """
-        try:
-            self.params[key] = value
-        except KeyError:
-            raise InvalidParamException(self.name, key)
-
     def checkReccommendedParams(self) -> None:
         """
         Final check to see if all recommended parameters have been set
         """
         for param in self.recommendedParameters:
-            if param not in self.params:
+            if param not in self.definedParams:
                 print(f'Object {self.name}: recommend defining parameter "{param}"')
 
 
 class Widget(ParseObject, abc.ABC):
     def __init__(self, name, validParams: List[Tuple[str, str, str]], requiredParams: List[str]):
         super().__init__(name, validParams + [('style', 'style', name_t)], requiredParams)
+        self.params: Dict[str, Any] = {}
 
     @abc.abstractmethod
     def outputInit(self):
@@ -86,6 +75,18 @@ class Widget(ParseObject, abc.ABC):
     def outputCommand(self):
         pass
 
+    def setWidgetParam(self, key: str, value: Any) -> None:
+        """
+        Sets the value of a parameter
+
+        :param key: The parameter name
+        :param value: The parameter's value
+        """
+        if key not in self.validParameters:
+            raise InvalidParamException(self.name, key)
+
+        self.params[key] = value
+
     def defaultInit(self, classType) -> str:
         return f'self.{self.name} = {classType}()\n'
 
@@ -93,9 +94,10 @@ class Widget(ParseObject, abc.ABC):
         out = f'self.{self.name}.configure( '
         size = len(paramList)
         for x, i in paramList, range(size):
-            out += f'{x}={self.params[x]}'
-            if i < size:
-                out += ', '
+            if x in self.params:
+                out += f'{x}={self.params[x]}'
+                if i < size:
+                    out += ', '
 
         out += ')\n'
 
@@ -106,18 +108,43 @@ class Style(ParseObject, abc.ABC):
     def __init__(self, name, validParams: List[Tuple[str, str, str]], validStates: List[str]):
         super().__init__(name, validParams, [])
         self.validStates = validStates
+        self.params: Dict[str, List[List[Any]]] = {}
 
     @abc.abstractmethod
     def outputStyle(self) -> str:
         pass
 
+    def setStyleParam(self, key: str, value: Any, states: List[str]) -> None:
+        if key not in self.validParameters:
+            raise InvalidParamException(self.name, key)
+
+        for x in states:
+            if x not in self.validStates:
+                raise InvalidStyleStateException(self.name, key, x)
+
+        if key not in self.params:
+            self.params[key] = []
+
+        states.append(value)
+
+        self.params[key].append(states)
+        self.definedParams.add(key)
+
     def defaultStyleOutput(self, paramList: List[str], classType) -> str:
 
-        # TODO Style output: handle dynamic states
-        out = f"ttk.Style().configure( '{self.name}.{classType}'"
+        out = f"ttk.Style().map( '{self.name}.{classType}'"
 
         for x in paramList:
-            out += f', {x}={self.params[x]}'
+            if x in self.definedParams:
+                states = self.params[x]
+                out += f', {x}=['
+                length = len(states)
+                for item, i in states, range(length):
+                    out += f'{item}'
+                    if i < length:
+                        out += ','
+
+                out += f']'
 
         out += ')\n'
         return out
